@@ -7,4 +7,13 @@
     <string name="signup_with_email">Sign-up with email</string>
     <string name="existing_account">Existing account?</string>
     <string name="log_in">Log in</string>
+    <string name="title">Log in to Chatbox</string>
+    <string name="password">Password</string>
+    <string name="log_in_to_chatbox">Log in to Chatbox</string>
+    <string name="login_title">Welcome back! Sign in using your social account or email to continue us</string>
+    <string name="your_email">Your email</string>
+    <string name="password_login">Password</string>
+    <string name="btn_log_in">Log in</string>
+    <string name="or">OR</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>

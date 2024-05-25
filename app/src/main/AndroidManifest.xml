@@ -12,8 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatbox">
         <activity
+            android:name=".Login.LoginActivity"
+            android:exported="false" >
+
+
+        </activity>
+        <activity
             android:name=".StartupActivity.StartupActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,8 +29,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.App.Starting">
-        </activity>
+            android:theme="@style/Theme.App.Starting" />
     </application>
 
 </manifest>
