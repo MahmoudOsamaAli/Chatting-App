@@ -7,4 +7,12 @@
     <string name="signup_with_email">Sign-up with email</string>
     <string name="existing_account">Existing account?</string>
     <string name="log_in">Log in</string>
+    <string name="sign_up_with_email">Sign up with Email</string>
+    <string name="signup_title">Get chatting with friends and family today by signing up for our chat app!</string>
+    <string name="your_name">Your name</string>
+    <string name="your_email">Your email</string>
+    <string name="password">Password</string>
+    <string name="Password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_an_account">Create an account</string>
 </resources>
