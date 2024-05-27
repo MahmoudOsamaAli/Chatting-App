@@ -1,11 +1,13 @@
 package com.example.chatbox.StartupActivity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.chatbox.Login.LoginActivity
 import com.example.chatbox.R
 import com.example.chatbox.databinding.ActivityStartupBinding
 
@@ -28,5 +30,16 @@ class StartupActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Switching from startup Activity to Login Activity
+        binding.LogIn.setOnClickListener { switchingToLonginActivity() }
+
+
     }
+
+    private fun switchingToLonginActivity() {
+        val intent = Intent(this,LoginActivity::class.java)
+        startActivity(intent)
+    }
+
 }
