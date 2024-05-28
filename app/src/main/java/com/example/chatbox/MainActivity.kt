@@ -12,6 +12,5 @@ class MainActivity : AppCompatActivity() {
         // Binding to Access all the views
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
 }

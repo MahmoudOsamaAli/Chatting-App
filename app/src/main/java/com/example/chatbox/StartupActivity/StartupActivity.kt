@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.chatbox.Login.LoginActivity
+import com.example.chatbox.login.LoginActivity
 import com.example.chatbox.R
 import com.example.chatbox.databinding.ActivityStartupBinding
 
