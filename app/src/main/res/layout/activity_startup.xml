@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartupActivity.StartupActivity"
+    tools:context=".startupActivity.StartupActivity"
     android:fitsSystemWindows="true"
     android:background="@drawable/onboarding"
     >
@@ -99,7 +99,7 @@
         android:id="@+id/Facebook_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_facebook"
+        android:src="@drawable/logo_facebook"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="490dp"
@@ -111,7 +111,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="28dp"
-        android:src="@drawable/ic_apple_loge"
+        android:src="@drawable/logo_apple"
         app:layout_constraintStart_toEndOf="@+id/Background_Mac_icon"
         app:layout_constraintTop_toTopOf="@+id/Background_Mac_icon" />
     <ImageView
@@ -119,14 +119,14 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="28dp"
-        android:src="@drawable/ic_google_logo"
+        android:src="@drawable/logo_google"
         app:layout_constraintStart_toEndOf="@+id/Background_Facebook_icon"
         app:layout_constraintTop_toTopOf="@+id/Background_Facebook_icon" />
     <ImageView
         android:id="@+id/divider_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/divider_line"
+        android:src="@drawable/ic_full_divider_long"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -136,13 +136,13 @@
         android:layout_width="327dp"
         android:layout_height="48dp"
         android:text="@string/signup_with_email"
-        android:textColor="@color/black"
+        android:textColor="@drawable/button_signup_text_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="635dp"
         android:layout_marginHorizontal="8dp"
-        android:background="@drawable/sign_up_button_style"
+        android:background="@drawable/button_signup"
         />
     <TextView
         android:id="@+id/Existing_account"
@@ -156,7 +156,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="700dp"
+        android:layout_marginTop="710dp"
         android:layout_marginEnd="50dp"
         />
 
@@ -164,11 +164,11 @@
         android:id="@+id/LogIn"
         android:layout_width="50dp"
         android:layout_height="22dp"
-        android:layout_marginTop="700dp"
+        android:layout_marginTop="710dp"
         android:text="@string/log_in"
         android:textSize="14sp"
         android:fontFamily="@font/circular_std"
-        android:textColor="@color/white"
+        android:textColor="@drawable/login_text_style"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
