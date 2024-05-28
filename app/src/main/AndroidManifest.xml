@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Chatbox">
 
         <activity
-            android:name=".Signup.SignupActivity"
+            android:name=".signup.SignupActivity"
             android:exported="false"/>
         <activity
             android:name=".login.LoginActivity"
