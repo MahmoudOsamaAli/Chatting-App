@@ -156,8 +156,8 @@
         android:text="@string/create_an_account"
         android:layout_marginTop="670dp"
         android:layout_marginHorizontal="24dp"
-        android:textColor="@drawable/button_title_color"
-        android:background="@drawable/button_style"
+        android:textColor="@drawable/button_new_acount_text_colors"
+        android:background="@drawable/button_new_account"
         />
 
 

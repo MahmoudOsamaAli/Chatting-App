@@ -1,5 +1,6 @@
 package com.example.chatbox.StartupActivity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.chatbox.R
+import com.example.chatbox.Signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
 class StartupActivity : AppCompatActivity() {
@@ -28,5 +30,14 @@ class StartupActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // switching to signup Activity
+        binding.BtnSignUp.setOnClickListener { swapToSignupActivity() }
+
+    }
+
+    private fun swapToSignupActivity() {
+        val intent = Intent(this,SignupActivity::class.java)
+        startActivity(intent)
     }
 }
