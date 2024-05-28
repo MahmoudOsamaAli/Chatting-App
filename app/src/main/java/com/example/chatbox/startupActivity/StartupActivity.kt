@@ -13,7 +13,7 @@ import com.example.chatbox.Signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
 class StartupActivity : AppCompatActivity() {
-    lateinit var binding: ActivityStartupBinding
+    private lateinit var binding: ActivityStartupBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

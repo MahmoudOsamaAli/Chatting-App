@@ -11,19 +11,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatbox">
+
         <activity
             android:name=".Signup.SignupActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"/>
         <activity
-            android:name=".StartupActivity.StartupActivity"
-            android:exported="true">
             android:name=".login.LoginActivity"
-            android:exported="false" >
-
-
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".startupActivity.StartupActivity"
             android:exported="true">
