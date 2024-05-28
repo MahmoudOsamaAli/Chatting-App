@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.chatbox.R
-import com.example.chatbox.StartupActivity.StartupActivity
+import com.example.chatbox.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivityLoginBinding
 
 

@@ -1,4 +1,4 @@
-package com.example.chatbox.StartupActivity
+package com.example.chatbox.startupActivity
 
 import android.content.Intent
 import android.os.Bundle
