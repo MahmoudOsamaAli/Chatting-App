@@ -2,6 +2,7 @@ package com.example.chatbox
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.chatbox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
