@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.chatbox.login.LoginActivity
 import com.example.chatbox.R
+import com.example.chatbox.signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
 class StartupActivity : AppCompatActivity() {
-    lateinit var binding: ActivityStartupBinding
+    private lateinit var binding: ActivityStartupBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,6 +30,7 @@ class StartupActivity : AppCompatActivity() {
 
         // Switching from startup Activity to Login Activity
         binding.LogIn.setOnClickListener { switchingToLonginActivity() }
+
     }
 
     private fun switchingToLonginActivity() {
