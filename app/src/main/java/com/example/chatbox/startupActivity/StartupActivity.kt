@@ -22,6 +22,9 @@ class StartupActivity : AppCompatActivity() {
         // Handle the splash screen transition.
         installSplashScreen()
 
+        // hide ActionBar
+        actionBar?.hide()
+
         setContentView(binding.root)
 
         // Switching from startup Activity to Login Activity
