@@ -3,7 +3,6 @@ package com.example.chatbox.startupActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.chatbox.login.LoginActivity
@@ -31,6 +30,16 @@ class StartupActivity : AppCompatActivity() {
         // Switching from startup Activity to Login Activity
         binding.LogIn.setOnClickListener { switchingToLonginActivity() }
 
+
+
+        // switching to signup Activity
+        binding.BtnSignUp.setOnClickListener { swapToSignupActivity() }
+
+    }
+
+    private fun swapToSignupActivity() {
+        val intent = Intent(this,SignupActivity::class.java)
+        startActivity(intent)
     }
 
     private fun switchingToLonginActivity() {
