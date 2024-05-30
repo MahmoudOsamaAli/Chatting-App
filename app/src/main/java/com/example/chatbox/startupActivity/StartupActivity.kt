@@ -3,6 +3,7 @@ package com.example.chatbox.startupActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.chatbox.login.LoginActivity
@@ -21,12 +22,13 @@ class StartupActivity : AppCompatActivity() {
         // Handle the splash screen transition.
         installSplashScreen()
 
+        // hide ActionBar
+        actionBar?.hide()
+
         setContentView(binding.root)
 
         // Switching from startup Activity to Login Activity
         binding.LogIn.setOnClickListener { switchingToLonginActivity() }
-
-
     }
 
     private fun switchingToLonginActivity() {
