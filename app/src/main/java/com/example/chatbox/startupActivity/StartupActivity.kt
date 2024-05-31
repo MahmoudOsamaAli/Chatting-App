@@ -1,19 +1,14 @@
 package com.example.chatbox.startupActivity
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.view.WindowInsetsController
-import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import com.example.chatbox.login.LoginActivity
-import com.example.chatbox.R
 import com.example.chatbox.signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
