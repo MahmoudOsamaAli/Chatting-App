@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chatbox.MainActivity
 import com.example.chatbox.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivityLoginBinding
-import com.example.chatbox.home.HomeActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -22,11 +22,11 @@ class LoginActivity : AppCompatActivity() {
         // backArrow to startup Activity
         binding.icBackArrow.setOnClickListener { backToStartupActivity() }
         //swap to home Activity
-        binding.btnLogin.setOnClickListener {  swapToHomeActivity()}
+        binding.btnLogin.setOnClickListener {  swapToMainActivity()}
     }
 
-    private fun swapToHomeActivity() {
-        val intent = Intent(this,HomeActivity::class.java)
+    private fun swapToMainActivity() {
+        val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
 

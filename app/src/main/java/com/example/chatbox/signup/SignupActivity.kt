@@ -7,8 +7,8 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chatbox.MainActivity
 import com.example.chatbox.databinding.ActivitySignupBinding
-import com.example.chatbox.home.HomeActivity
 import com.example.chatbox.startupActivity.StartupActivity
 
 class SignupActivity : AppCompatActivity() {
@@ -23,10 +23,10 @@ class SignupActivity : AppCompatActivity() {
         // back to startup Activity
         binding.icBackArrow.setOnClickListener { backToStartupActivity() }
         // swap to home Activity
-        binding.btnCreateAnAccount.setOnClickListener {swapToHomeActivity()}
+        binding.btnCreateAnAccount.setOnClickListener {swapToMainActivity()}
     }
-    private fun swapToHomeActivity() {
-        val intent = Intent(this, HomeActivity::class.java)
+    private fun swapToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
     private fun backToStartupActivity() {
