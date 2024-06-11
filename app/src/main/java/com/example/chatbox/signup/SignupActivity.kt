@@ -7,7 +7,7 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.chatbox.MainActivity
+import com.example.chatbox.home.MainActivity
 import com.example.chatbox.databinding.ActivitySignupBinding
 import com.example.chatbox.startupActivity.StartupActivity
 
