@@ -11,24 +11,28 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatbox">
-
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".signup.SignupActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
-            android:name=".login.LoginActivity"/>
+            android:name=".login.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".startupActivity.StartupActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
+            android:name=".home.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

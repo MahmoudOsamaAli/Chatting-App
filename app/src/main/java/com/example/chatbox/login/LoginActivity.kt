@@ -6,24 +6,28 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chatbox.home.MainActivity
 import com.example.chatbox.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivityLoginBinding
 
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // change colors of status bar and title
         setStatusBar()
         // backArrow to startup Activity
         binding.icBackArrow.setOnClickListener { backToStartupActivity() }
+        //swap to home Activity
+        binding.btnLogin.setOnClickListener {  swapToMainActivity()}
+    }
 
-
+    private fun swapToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun backToStartupActivity() {
