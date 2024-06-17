@@ -1,32 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Chatbox" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.Chatbox" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.Chatbox" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="Theme.Chatbox" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_signup</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <!-- Set the splash screen background to black -->
         <item name="android:windowLightStatusBar">false</item>
         <item name="windowSplashScreenBackground">@android:color/white</item>
         <item name="windowSplashScreenIconBackgroundColor">@android:color/white</item>
-
-        <!-- Use windowSplashScreenAnimatedIcon to add a drawable or an animated
-             drawable. -->
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
-        <item name="windowSplashScreenAnimationDuration">400</item>
-<!--        <item name="splashScreenIconSize">36dp</item>-->
-        <!-- Set the theme of the Activity that follows your splash screen. -->
-        <item name="postSplashScreenTheme">@style/Theme.Chatbox</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Chatbox</item>
     </style>
 </resources>

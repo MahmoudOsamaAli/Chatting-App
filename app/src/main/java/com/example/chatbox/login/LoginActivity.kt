@@ -7,11 +7,11 @@ import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chatbox.MainActivity
-import com.example.chatbox.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivityLoginBinding
-
+import com.example.chatbox.startupActivity.StartupActivity
 
 class LoginActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         // backArrow to startup Activity
         binding.icBackArrow.setOnClickListener { backToStartupActivity() }
         //swap to home Activity
-        binding.btnLogin.setOnClickListener {  swapToMainActivity()}
+        binding.btnLogin.setOnClickListener { swapToMainActivity() }
     }
 
     private fun swapToMainActivity() {

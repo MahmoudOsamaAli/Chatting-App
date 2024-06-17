@@ -1,178 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".startupActivity.StartupActivity"
-    android:fitsSystemWindows="true"
-    android:background="@drawable/onboarding"
-    >
-    <TextView
-        android:id="@+id/ApplicationName_E1"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:text="@string/ApplicationNameE1"
-        android:fontFamily="@font/arturo"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="82dp"
-        android:layout_marginTop="20dp"
-/>
-
-    <TextView
-        android:id="@+id/ApplicationName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ApplicationName"
-        android:fontFamily="@font/circular_std"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/ApplicationName_E1"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        />
-
-    <TextView
-        android:id="@+id/ApplicationContent"
-        android:layout_width="338dp"
-        android:layout_height="312dp"
-        android:text="@string/App_Content"
-        android:fontFamily="@font/caros_font"
-        android:textColor="@color/white"
-        android:textSize="56sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="80dp"
-        android:gravity="start"
-        android:layout_marginStart="24dp"
-        />
-    <TextView
-        android:id="@+id/About_Our_Application"
-        android:layout_width="284dp"
-        android:layout_height="52dp"
-        android:text="@string/About_Our_Application"
-        android:textColor="@color/Startup_Second_Color"
-        android:fontFamily="@font/circular_std"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="415dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginStart="24dp"/>
-    <ImageView
-        android:id="@+id/Background_Facebook_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/ic_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="490dp"
-        android:layout_marginStart="80dp"
-        />
-
-    <ImageView
-        android:id="@+id/Background_Google_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:src="@drawable/ic_background"
-        app:layout_constraintStart_toEndOf="@+id/Background_Mac_icon"
-        app:layout_constraintTop_toTopOf="@+id/Background_Mac_icon" />
-
-    <ImageView
-        android:id="@+id/Background_Mac_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:src="@drawable/ic_background"
-        app:layout_constraintStart_toEndOf="@+id/Background_Facebook_icon"
-        app:layout_constraintTop_toTopOf="@+id/Background_Facebook_icon" />
-    <ImageView
-        android:id="@+id/Facebook_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/logo_facebook"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="490dp"
-        android:layout_marginStart="80dp"
-        />
-
-    <ImageView
-        android:id="@+id/Google_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:src="@drawable/logo_apple"
-        app:layout_constraintStart_toEndOf="@+id/Background_Mac_icon"
-        app:layout_constraintTop_toTopOf="@+id/Background_Mac_icon" />
-    <ImageView
-        android:id="@+id/Apply_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:src="@drawable/logo_google"
-        app:layout_constraintStart_toEndOf="@+id/Background_Facebook_icon"
-        app:layout_constraintTop_toTopOf="@+id/Background_Facebook_icon" />
-    <ImageView
-        android:id="@+id/divider_line"
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_full_divider_long"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="180dp"/>
-    <Button
-        android:id="@+id/Btn_SignUp"
-        android:layout_width="327dp"
-        android:layout_height="48dp"
-        android:text="@string/signup_with_email"
-        android:textColor="@drawable/button_signup_text_colors"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="635dp"
-        android:layout_marginHorizontal="8dp"
-        style="@style/MyButtonStyle"
-        />
-    <TextView
-        android:id="@+id/Existing_account"
-        android:layout_width="135dp"
-        android:layout_height="22dp"
-        android:text="@string/existing_account"
-        android:textSize="14sp"
-        android:textColor="@color/Startup_Second_Color"
-        android:fontFamily="@font/circular_std"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="710dp"
-        android:layout_marginEnd="50dp"
-        />
+        android:layout_height="match_parent"
+        tools:context=".startupActivity.StartupActivity"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/onboarding"
+        >
+        <TextView
+            android:id="@+id/ApplicationName_E1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ApplicationNameE1"
+            android:fontFamily="@font/arturo"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ApplicationName"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/LogIn"
-        android:layout_width="50dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="710dp"
-        android:text="@string/log_in"
-        android:textSize="14sp"
-        android:fontFamily="@font/circular_std"
-        android:textColor="@drawable/login_text_style"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/Existing_account"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/ApplicationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ApplicationName"
+            android:fontFamily="@font/circular_std"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ApplicationName_E1"
+            app:layout_constraintBottom_toBottomOf="@id/ApplicationName_E1"
+            app:layout_constraintTop_toTopOf="@id/ApplicationName_E1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/ApplicationContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/App_Content"
+            android:fontFamily="@font/caros_font"
+            android:textColor="@color/white"
+            android:textSize="56sp"
+            app:layout_constraintTop_toBottomOf="@id/ApplicationName_E1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="60dp"
+            android:gravity="start"
+            android:paddingHorizontal="32dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/About_Our_Application"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/About_Our_Application"
+            android:textColor="@color/Startup_Second_Color"
+            android:fontFamily="@font/circular_std"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ApplicationContent"
+            android:paddingEnd="48dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="32dp"/>
+
+        <ImageView
+            android:id="@+id/facebook_login"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/logo_facebook"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_background"
+            app:layout_constraintEnd_toStartOf="@id/google_login"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/About_Our_Application" />
+
+        <ImageView
+            android:id="@+id/google_login"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="16dp"
+            android:src="@drawable/logo_google"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/facebook_login"
+            app:layout_constraintTop_toBottomOf="@id/About_Our_Application" />
+
+        <ImageView
+            android:id="@+id/divider_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_full_divider_long"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/google_login" />
+
+        <Button
+            android:id="@+id/Btn_SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_with_email"
+            android:textColor="@drawable/button_signup_text_colors"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line"
+            app:layout_constraintBottom_toTopOf="@id/Existing_account"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="16dp"
+            style="@style/MyButtonStyle" />
+
+        <TextView
+            android:id="@+id/Existing_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/existing_account"
+            android:textSize="16sp"
+            android:textColor="@color/Startup_Second_Color"
+            android:fontFamily="@font/circular_std"
+            android:gravity="center"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/Btn_SignUp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/LogIn"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/LogIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_in"
+            android:textSize="14sp"
+            android:fontFamily="@font/circular_std"
+            android:textColor="@drawable/login_text_style"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/Existing_account"
+            app:layout_constraintTop_toTopOf="@id/Existing_account" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -2,7 +2,7 @@
     <string name="app_name">Chatbox</string>
     <string name="ApplicationNameE1">C</string>
     <string name="ApplicationName">Chatbox</string>
-    <string name="App_Content"><![CDATA[Connect friends easily & quickly]]></string>
+    <string name="App_Content">Connect \nfriends \neasily &amp; \nquickly</string>
     <string name="About_Our_Application">Our chat app is the perfect way to stay connected with friends and family.</string>
     <string name="signup_with_email">Sign-up with email</string>
     <string name="existing_account">Existing account?</string>
