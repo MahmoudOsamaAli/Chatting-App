@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.chatbox.MainActivity
+import com.example.chatbox.home.MainActivity
 import com.example.chatbox.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivityLoginBinding
 
@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun swapToMainActivity() {
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
