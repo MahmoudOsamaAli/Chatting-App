@@ -36,13 +36,15 @@ class StartupActivity : AppCompatActivity() {
     }
 
     private fun swapToSignupActivity() {
-        val intent = Intent(this,SignupActivity::class.java)
+        val intent = Intent(this, SignupActivity::class.java)
         startActivity(intent)
+        finish() // إنهاء نشاط StartupActivity
     }
 
     private fun switchingToLonginActivity() {
-        val intent = Intent(this,LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+        finish() // إنهاء نشاط StartupActivity
     }
 
 }
