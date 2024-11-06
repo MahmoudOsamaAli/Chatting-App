@@ -61,17 +61,17 @@ class MessageFragment : Fragment() {
      * fetching the messages from FakeData, and assigning the adapter.
      */
     private fun setupRecyclerView() {
-        // Get a list of fake messages
+        // Initialize FakeData
         val fakeData = FakeData()
-        messagesList = fakeData.getMessages().toMutableList() // Get messages from FakeData
+        messagesList = fakeData.getMessages().toMutableList()
 
-        // Create a list for the silent status of each message
+        // Initialize the silent status list
         val silentStatusList = messagesList.map { it.isSilent }.toMutableList()
 
-        // Initialize adapter with messages and their silent statuses
-        adapter = MessagesAdapter(messagesList, silentStatusList)
+        // Initialize the adapter
+        adapter = MessagesAdapter(messagesList)
 
-        // Set RecyclerView layout manager and adapter
+        // Set the adapter and layout manager for RecyclerView
         binding.recyclerViewMessages.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = this@MessageFragment.adapter
@@ -217,5 +217,14 @@ class MessageFragment : Fragment() {
             putBoolean("message_$position", isSilent) // Store the silent state
             apply() // Commit changes
         }
+
+    }
+    // Whenever you need to update the data (e.g., after an API call or user action)
+    private fun refreshMessages() {
+        // Fetch new data (e.g., from FakeData or any data source)
+        val newMessages = FakeData().getMessages() // Replace with actual data update logic
+
+        // Use the new method to update the adapter's data
+        adapter.updateMessages(newMessages)
     }
 }
