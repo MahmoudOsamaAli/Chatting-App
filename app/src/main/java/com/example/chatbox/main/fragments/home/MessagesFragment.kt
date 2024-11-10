@@ -1,4 +1,4 @@
-package com.example.chatbox.home.fragments
+package com.example.chatbox.main.fragments.home
 
 import android.content.Context
 import android.graphics.Canvas
@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatbox.R
 import com.example.chatbox.databinding.FragmentsMessageBinding
-import com.example.chatbox.home.recyclerView.FakeData
-import com.example.chatbox.home.recyclerView.MessagesAdapter
+import com.example.chatbox.data.FakeData
+import com.example.chatbox.main.fragments.home.recyclerView.MessagesAdapter
 import com.google.android.material.snackbar.Snackbar
 
 /**

@@ -1,12 +1,15 @@
-package com.example.chatbox.home.recyclerView
+package com.example.chatbox.main.fragments.home.recyclerView
 
 import MessagesDiffCallback
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatbox.data.FakeData
 import com.example.chatbox.databinding.ItemMessageBinding
+import com.example.chatbox.main.fragments.home.chat.ChatActivity
 
 class MessagesAdapter(
     private var messagesList: List<FakeData.Message>
@@ -19,6 +22,11 @@ class MessagesAdapter(
             binding.messageLastMessage.text = message.content
             // Handle the silent status indicator
             binding.silentIcon.visibility = if (message.isSilent) View.VISIBLE else View.GONE
+
+            itemView.setOnClickListener {
+                val itemContext = itemView.context
+                val intent = Intent(itemContext, ChatActivity::class.java)
+            }
         }
     }
 

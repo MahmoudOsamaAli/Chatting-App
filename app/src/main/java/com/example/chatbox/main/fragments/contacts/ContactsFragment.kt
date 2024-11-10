@@ -1,4 +1,4 @@
-package com.example.chatbox.home.fragments
+package com.example.chatbox.main.fragments.contacts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.chatbox.R
 
-class Calls : Fragment() {
+class ContactsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragments_calls,container,false)
+        return inflater.inflate(R.layout.fragments_contacts,container,false)
     }
 }

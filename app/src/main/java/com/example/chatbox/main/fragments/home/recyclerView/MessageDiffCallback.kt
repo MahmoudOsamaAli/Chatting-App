@@ -1,5 +1,5 @@
 import androidx.recyclerview.widget.DiffUtil
-import com.example.chatbox.home.recyclerView.FakeData
+import com.example.chatbox.data.FakeData
 
 class MessagesDiffCallback(
     private val oldList: List<FakeData.Message>,
@@ -9,11 +9,6 @@ class MessagesDiffCallback(
     override fun getOldListSize(): Int {
         return oldList.size
     }
-
-    override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
-        return super.getChangePayload(oldItemPosition, newItemPosition)
-    }
-
     override fun getNewListSize(): Int {
         return newList.size
     }

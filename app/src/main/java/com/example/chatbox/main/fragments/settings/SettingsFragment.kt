@@ -1,4 +1,4 @@
-package com.example.chatbox.home.fragments
+package com.example.chatbox.main.fragments.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.chatbox.R
 
-class Settings : Fragment() {
+class SettingsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

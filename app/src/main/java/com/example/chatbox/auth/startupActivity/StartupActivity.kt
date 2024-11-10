@@ -1,4 +1,4 @@
-package com.example.chatbox.startupActivity
+package com.example.chatbox.auth.startupActivity
 
 import android.content.Intent
 import android.os.Build
@@ -8,8 +8,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
-import com.example.chatbox.login.LoginActivity
-import com.example.chatbox.signup.SignupActivity
+import com.example.chatbox.auth.login.LoginActivity
+import com.example.chatbox.auth.signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
 class StartupActivity : AppCompatActivity() {
