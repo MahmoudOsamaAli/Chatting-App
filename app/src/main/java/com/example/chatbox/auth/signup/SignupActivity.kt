@@ -7,9 +7,9 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.chatbox.main.MainActivity
-import com.example.chatbox.databinding.ActivitySignupBinding
 import com.example.chatbox.auth.startupActivity.StartupActivity
+import com.example.chatbox.databinding.ActivitySignupBinding
+import com.example.chatbox.main.MainActivity
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
@@ -21,24 +21,27 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // back to startup Activity
-        binding.icBackArrow.setOnClickListener { backToStartupActivity() }
+        binding.backArrowIcon.setOnClickListener { backToStartupActivity() }
         // swap to home Activity
-        binding.btnCreateAnAccount.setOnClickListener {swapToMainActivity()}
+        binding.btnCreateAnAccount.setOnClickListener { swapToMainActivity() }
     }
+
     private fun swapToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
+
     private fun backToStartupActivity() {
         val intent = Intent(this, StartupActivity::class.java)
         startActivity(intent)
     }
+
     private fun setStatusBar() {
         // to make the status bar transparent
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.BLACK
         // to change status bar title color
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 }

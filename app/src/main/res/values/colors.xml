@@ -3,6 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Startup_Second_Color">#B9C1BE</color>
-    <color name="home_background">#000E08</color>
+    <color name="DeepGreen">#000E08</color>
     <color name="bottom_nav_color">#EEFAF8</color>
+
+    <!-- Theme Colors -->
+    <color name="primaryGreen">#24786D</color>
+    <color name="primaryGreenDark">#1D5B53</color>
+    <color name="secondaryGray">#797C7B</color>
+    <color name="backgroundWhite">#FFFFFF</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#797C7B</color>
 </resources>

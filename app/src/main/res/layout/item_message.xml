@@ -21,7 +21,7 @@
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/blank_profile_image"
+            android:src="@drawable/img_profile_empty"
             app:shapeAppearanceOverlay="@style/circleImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -76,7 +76,7 @@
             android:layout_height="18dp"
             android:layout_marginTop="4dp"
             android:contentDescription="TODO"
-            android:src="@drawable/silence"
+            android:src="@drawable/ic_recycler_notification_silence"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/message_time"
             app:layout_constraintEnd_toEndOf="@id/message_time" />

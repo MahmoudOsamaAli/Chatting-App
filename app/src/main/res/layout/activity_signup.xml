@@ -8,161 +8,107 @@
     tools:context=".auth.signup.SignupActivity">
 
     <ImageView
-        android:id="@+id/ic_back_arrow"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/signup_backarrow"
+        android:id="@+id/backArrowIcon"
+        style="@style/AuthIconStyle"
+        android:src="@drawable/ic_back_arrow_deep_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="52dp"
+        android:id="@+id/signup_greenLine_icon"
+        android:layout_width="46dp"
         android:layout_height="7.9dp"
-        android:layout_marginStart="218.5dp"
-        android:layout_marginTop="137dp"
-        android:src="@drawable/green_line"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_fragments_line_green"
+        app:layout_constraintEnd_toEndOf="@+id/signup_main_title"
+        app:layout_constraintTop_toTopOf="@+id/signup_main_title" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="120dp"
-        android:fontFamily="@font/caros"
+        android:id="@+id/signup_main_title"
+        style="@style/AuthTitleStyle"
         android:text="@string/sign_up_with_email"
-        android:textColor="@color/black"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="293dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/circular_std"
-        android:letterSpacing="0.1"
+        android:id="@+id/signup_SubTitle"
+        style="@style/AuthSubTitleStyle"
         android:text="@string/signup_title"
-        android:textAlignment="center"
-        android:textColor="#797C7B"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="@+id/signup_main_title"
+        app:layout_constraintStart_toStartOf="@+id/signup_main_title"
+        app:layout_constraintTop_toBottomOf="@+id/signup_main_title" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:fontFamily="@font/circular_std"
-        android:letterSpacing="0.1"
+        android:id="@+id/signup_Name_Label"
+        style="@style/AuthLabelStyle"
+        android:layout_marginTop="64dp"
         android:text="@string/your_name"
-        android:textAlignment="center"
-        android:textColor="#24786D"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/user_name"
-        app:layout_constraintStart_toStartOf="@+id/user_name" />
+        app:layout_constraintStart_toStartOf="@+id/signup_UserName_ET"
+        app:layout_constraintTop_toBottomOf="@+id/signup_SubTitle" />
 
     <EditText
-        android:id="@+id/user_name"
-        android:layout_width="327dp"
-        android:layout_height="58dp"
+        android:id="@+id/signup_UserName_ET"
+        style="@style/AuthTextFieldStyle"
         android:inputType="text"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="48dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_Name_Label" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/circular_std"
-        android:letterSpacing="0.1"
+        style="@style/AuthLabelStyle"
         android:text="@string/your_email"
-        android:textAlignment="center"
-        android:textColor="#24786D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/user_email"
-        app:layout_constraintBottom_toTopOf="@+id/user_email" />
+        app:layout_constraintBottom_toTopOf="@+id/signup_Email_ET"
+        app:layout_constraintStart_toStartOf="@+id/signup_Email_ET" />
 
     <EditText
-        android:id="@+id/user_email"
-        android:layout_width="327dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="22dp"
+        android:id="@+id/signup_Email_ET"
+        style="@style/AuthTextFieldStyle"
+        android:layout_marginTop="32dp"
         android:inputType="textWebEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/user_password"
-        app:layout_constraintEnd_toEndOf="@+id/user_name"
-        app:layout_constraintStart_toStartOf="@+id/user_name"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+        app:layout_constraintBottom_toTopOf="@+id/signup_Password_ET"
+        app:layout_constraintEnd_toEndOf="@+id/signup_UserName_ET"
+        app:layout_constraintStart_toStartOf="@+id/signup_UserName_ET"
+        app:layout_constraintTop_toBottomOf="@+id/signup_UserName_ET" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="90dp"
-        android:layout_height="16dp"
-        android:fontFamily="@font/circular_std"
-        android:letterSpacing="0.1"
+        style="@style/AuthLabelStyle"
         android:text="@string/Password"
-        android:textAlignment="textStart"
-        android:textColor="#24786D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/user_password"
-        app:layout_constraintBottom_toTopOf="@id/user_password"
-        />
+        app:layout_constraintBottom_toTopOf="@id/signup_Password_ET"
+        app:layout_constraintStart_toStartOf="@id/signup_Password_ET" />
 
     <EditText
-        android:id="@+id/user_password"
-        android:layout_width="327dp"
-        android:layout_height="58dp"
+        android:id="@+id/signup_Password_ET"
+        style="@style/AuthTextFieldStyle"
+        android:layout_marginTop="32dp"
         android:inputType="textPassword"
-        android:layout_marginTop="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/user_confirm_password"
-        app:layout_constraintEnd_toEndOf="@+id/user_email"
-        app:layout_constraintStart_toStartOf="@+id/user_email"
-        app:layout_constraintTop_toBottomOf="@+id/user_email" />
+        app:layout_constraintBottom_toTopOf="@+id/signup_PasswordConfirm_ET"
+        app:layout_constraintEnd_toEndOf="@+id/signup_Email_ET"
+        app:layout_constraintStart_toStartOf="@+id/signup_Email_ET"
+        app:layout_constraintTop_toBottomOf="@+id/signup_Email_ET" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:fontFamily="@font/circular_std"
-        android:gravity="start"
-        android:letterSpacing="0.1"
+        style="@style/AuthLabelStyle"
         android:text="@string/confirm_password"
-        android:textColor="#24786D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/user_confirm_password"
-        app:layout_constraintBottom_toTopOf="@id/user_confirm_password"/>
+        app:layout_constraintBottom_toTopOf="@id/signup_PasswordConfirm_ET"
+        app:layout_constraintStart_toStartOf="@id/signup_PasswordConfirm_ET" />
 
     <EditText
-        android:id="@+id/user_confirm_password"
-        android:layout_width="330dp"
-        android:layout_height="58dp"
+        android:id="@+id/signup_PasswordConfirm_ET"
+        style="@style/AuthTextFieldStyle"
+        android:layout_marginTop="32dp"
         android:inputType="textPassword"
-        android:layout_marginTop="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/user_password"
-        app:layout_constraintStart_toStartOf="@+id/user_password"
-        app:layout_constraintTop_toBottomOf="@+id/user_password" />
+        app:layout_constraintEnd_toEndOf="@+id/signup_Password_ET"
+        app:layout_constraintStart_toStartOf="@+id/signup_Password_ET"
+        app:layout_constraintTop_toBottomOf="@+id/signup_Password_ET" />
 
     <Button
         android:id="@+id/btn_create_an_account"
-        android:layout_width="327dp"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="24dp"
-        android:background="@drawable/button_new_account"
+        style="@style/AuthButtonStyle"
+        android:layout_marginBottom="64dp"
         android:text="@string/create_an_account"
-        android:textColor="@drawable/button_new_acount_text_colors"
-        android:layout_marginTop="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_confirm_password" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

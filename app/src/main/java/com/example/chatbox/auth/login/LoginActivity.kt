@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.chatbox.main.MainActivity
 import com.example.chatbox.auth.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivityLoginBinding
+import com.example.chatbox.main.MainActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -20,9 +20,9 @@ class LoginActivity : AppCompatActivity() {
         // change colors of status bar and title
         setStatusBar()
         // backArrow to startup Activity
-        binding.icBackArrow.setOnClickListener { backToStartupActivity() }
+        binding.backArrowIcon.setOnClickListener { backToStartupActivity() }
         //swap to home Activity
-        binding.btnLogin.setOnClickListener {  swapToMainActivity()}
+        binding.loginButton.setOnClickListener { swapToMainActivity() }
     }
 
     private fun swapToMainActivity() {
@@ -41,6 +41,6 @@ class LoginActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.BLACK
         // to change status bar title color
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 }

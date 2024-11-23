@@ -12,8 +12,10 @@ import com.example.chatbox.auth.login.LoginActivity
 import com.example.chatbox.auth.signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
+@Suppress("DEPRECATION")
 class StartupActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartupBinding
+
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,13 +40,13 @@ class StartupActivity : AppCompatActivity() {
     private fun swapToSignupActivity() {
         val intent = Intent(this, SignupActivity::class.java)
         startActivity(intent)
-        finish() // إنهاء نشاط StartupActivity
+        finish()
     }
 
     private fun switchingToLonginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish() // إنهاء نشاط StartupActivity
+        finish()
     }
 
 }

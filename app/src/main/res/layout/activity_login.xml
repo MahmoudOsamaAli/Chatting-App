@@ -5,190 +5,148 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".auth.login.LoginActivity"
-
-    >
+    tools:context=".auth.login.LoginActivity">
 
     <ImageView
-        android:id="@+id/ic_back_arrow"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/ic_backarrow"
+        android:id="@+id/backArrowIcon"
+        style="@style/AuthIconStyle"
+        android:src="@drawable/ic_back_arrow_deep_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="56dp"
+        android:id="@+id/login_greenLine_icon"
+        android:layout_width="52dp"
         android:layout_height="7.9dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="117dp"
-        android:src="@drawable/ic_green_line_background"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/circular_std"
-        android:text="@string/log_in_to_chatbox"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/circular_std"
-        android:text="@string/login_title"
-        android:textColor="#797C7B"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <ImageView
-        android:id="@+id/login_facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/ic_white_facebook"
-        app:layout_constraintEnd_toStartOf="@+id/login_google"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <ImageView
-        android:id="@+id/login_google"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_white_google"
-        app:layout_constraintBottom_toBottomOf="@+id/login_facebook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/login_facebook"
-        app:layout_constraintTop_toTopOf="@+id/login_facebook" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_divider_short_line"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        android:layout_marginStart="1dp"
+        android:src="@drawable/ic_fragments_line_green"
+        app:layout_constraintStart_toStartOf="@id/login_mainTitle"
+        app:layout_constraintTop_toTopOf="@id/login_mainTitle" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/login_mainTitle"
+        style="@style/AuthTitleStyle"
+        android:text="@string/log_in_to_chatbox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_SubTitle"
+        style="@style/AuthSubTitleStyle"
+        android:text="@string/login_title"
+        app:layout_constraintStart_toStartOf="@id/login_mainTitle"
+        app:layout_constraintEnd_toEndOf="@id/login_mainTitle"
+        app:layout_constraintTop_toBottomOf="@id/login_mainTitle" />
+
+    <ImageView
+        android:id="@+id/login_facebook_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_logo_facebook_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/login_google_icon"
+        app:layout_constraintTop_toBottomOf="@id/login_SubTitle"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/login_google_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logo_google_white"
+        app:layout_constraintStart_toEndOf="@id/login_facebook_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/login_facebook_icon"
+        app:layout_constraintBottom_toBottomOf="@id/login_facebook_icon"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <View
+        android:id="@+id/login_dividerLine1"
+        android:layout_width="132dp"
+        android:layout_height="2dp"
+        android:background="@color/secondaryGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/login_or_Text"
+        app:layout_constraintTop_toTopOf="@id/login_or_Text"
+        app:layout_constraintBottom_toBottomOf="@id/login_or_Text" />
+
+    <TextView
+        android:id="@+id/login_or_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:letterSpacing="0.1"
         android:text="@string/or"
-        android:textColor="#797C7B"
+        android:textColor="@color/secondaryGray"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginTop="62dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/login_facebook" />
+        app:layout_constraintStart_toEndOf="@id/login_dividerLine1"
+        app:layout_constraintEnd_toStartOf="@id/login_dividerLine2"
+        app:layout_constraintTop_toBottomOf="@id/login_facebook_icon" />
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <View
+        android:id="@+id/login_dividerLine2"
         android:layout_width="132dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_divider_short_line"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        android:layout_height="2dp"
+        android:background="@color/secondaryGray"
+        app:layout_constraintStart_toEndOf="@id/login_or_Text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="@id/login_or_Text"
+        app:layout_constraintBottom_toBottomOf="@id/login_or_Text" />
 
     <TextView
-        android:layout_width="95dp"
-        android:layout_height="16dp"
-        android:width="500dp"
-        android:fontFamily="@font/circular_std"
-        android:letterSpacing="0.1"
+        android:id="@+id/login_email_TextView"
+        style="@style/AuthLabelStyle"
+        android:layout_marginTop="48dp"
         android:text="@string/your_email"
-        android:textColor="#24786D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/Ed_email"
-        app:layout_constraintBottom_toTopOf="@id/Ed_email" />
+        app:layout_constraintStart_toStartOf="@id/login_Email_editText"
+        app:layout_constraintTop_toBottomOf="@id/login_or_Text" />
 
     <EditText
-        android:id="@+id/Ed_email"
-        android:layout_width="327dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="58dp"
+        android:id="@+id/login_Email_editText"
+        style="@style/AuthTextFieldStyle"
+        android:layout_marginTop="4dp"
         android:inputType="textWebEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_email_TextView" />
 
     <TextView
-        android:layout_width="87dp"
-        android:layout_height="16dp"
-        android:width="500dp"
-        android:fontFamily="@font/circular_std"
-        android:gravity=""
-        android:letterSpacing="0.1"
+        style="@style/AuthLabelStyle"
+        android:layout_margin="4dp"
         android:text="@string/password_login"
-        android:textColor="#24786D"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/Ed_password"
-        app:layout_constraintBottom_toTopOf="@id/Ed_password" />
+        app:layout_constraintStart_toStartOf="@id/login_pw_editText"
+        app:layout_constraintBottom_toTopOf="@id/login_pw_editText" />
 
     <EditText
-        android:id="@+id/Ed_password"
-        android:layout_width="327dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="494dp"
+        android:id="@+id/login_pw_editText"
+        style="@style/AuthTextFieldStyle"
+        android:layout_marginTop="32dp"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/login_Email_editText"
+        app:layout_constraintEnd_toEndOf="@id/login_Email_editText"
+        app:layout_constraintTop_toBottomOf="@id/login_Email_editText" />
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="24dp"
-        android:background="@drawable/button_login"
-        android:fontFamily="@font/caros"
-        android:text="@string/btn_log_in"
-        android:textColor="@drawable/button_login_text_colors"
-        android:textSize="16sp"
+        android:id="@+id/login_Button"
+        style="@style/AuthButtonStyle"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/forgot_password"
+        android:text="@string/btn_log_in"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/login_forgot_password" />
 
     <TextView
-        android:id="@+id/forgot_password"
-        android:layout_width="205dp"
-        android:layout_height="20dp"
-        android:fontFamily="@font/circular_std"
-        android:gravity="center"
-        android:letterSpacing="0.1"
+        android:id="@+id/login_forgot_password"
+        style="@style/AuthLabelStyle"
+        android:layout_marginBottom="64dp"
         android:text="@string/forgot_password"
-        android:textColor="#24786D"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

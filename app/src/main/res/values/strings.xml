@@ -32,4 +32,13 @@
     <string name="help">Help</string>
     <string name="storage_and_data">Storage and data</string>
     <string name="invite_a_friend">Invite a friend</string>
+    <string name="search_background">search_background</string>
+    <string name="search_icon">search_icon</string>
+    <string name="profile_picture">profile_picture</string>
+    <string name="never_give_up">Never give up 💪</string>
+    <string name="chat">Chat</string>
+    <string name="chat_history_theme_wallpapers">Chat history,theme,wallpapers</string>
+    <string name="notifications">Notifications</string>
+    <string name="network_usage_stogare_usage">Network usage, stogare usage</string>
+    <string name="mahmoud_tarek">Mahmoud Tarek</string>
 </resources>

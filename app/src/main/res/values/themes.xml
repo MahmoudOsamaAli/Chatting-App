@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Chatbox" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -6,31 +6,54 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.Chatbox" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="Theme.Chatbox" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+
+        <!-- Primary Color -->
+        <item name="colorPrimary">@color/primaryGreen</item> <!-- Main color for your app -->
+        <item name="colorPrimaryVariant">@color/primaryGreenDark</item> <!-- Darker shade of primary color for contrast -->
+
+        <!-- Secondary Color -->
+        <item name="colorSecondary">@color/secondaryGray</item> <!-- Secondary color used for supporting elements -->
+
+        <!-- Background Color -->
+        <item name="android:windowBackground">@color/backgroundWhite</item> <!-- Background color of the app -->
+
+        <!-- Text Color -->
+        <item name="android:textColorPrimary">@color/textColorPrimary</item> <!-- Primary text color -->
+        <item name="android:textColorSecondary">@color/textColorSecondary</item> <!-- Secondary text color -->
+
+        <!-- TextField Color -->
+        <item name="colorControlNormal">@color/primaryGreen</item> <!-- Color for text fields and form elements -->
+        <item name="colorControlActivated">@color/primaryGreenDark</item> <!-- Color when form elements are activated -->
+
+        <!-- Status Bar Color (for dark theme) -->
+        <item name="android:statusBarColor">@color/primaryGreenDark</item> <!-- Status bar color when using dark theme -->
     </style>
 
+    <!-- Button Style -->
     <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_signup</item>
+        <item name="android:background">@drawable/selector_button_startup</item>
     </style>
 
+    <!-- Splash Screen Style -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <!-- Set the splash screen background to black -->
+        <!-- Set the splash screen background -->
         <item name="android:windowLightStatusBar">false</item>
-        <item name="windowSplashScreenBackground">@android:color/white</item>
+        <item name="windowSplashScreenBackground">@color/white</item> <!-- Splash background color -->
         <item name="windowSplashScreenIconBackgroundColor">@android:color/white</item>
 
-        <!-- Use windowSplashScreenAnimatedIcon to add a drawable or an animated
-             drawable. -->
-        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
+        <!-- Use windowSplashScreenAnimatedIcon to add a drawable or an animated drawable -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/layer_logo_chatbox</item>
         <item name="windowSplashScreenAnimationDuration">400</item>
-<!--        <item name="splashScreenIconSize">36dp</item>-->
-        <!-- Set the theme of the Activity that follows your splash screen. -->
+
+        <!-- Set the theme of the Activity that follows your splash screen -->
         <item name="postSplashScreenTheme">@style/Theme.Chatbox</item>
     </style>
 
-    <style name="circleImageView" parent="">
+    <!-- Circle ImageView Style -->
+    <style name="circleImageView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>

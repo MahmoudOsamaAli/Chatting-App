@@ -156,7 +156,7 @@ class MessageFragment : Fragment() {
         val itemView = viewHolder.itemView
         val icon: Drawable?
         val background: Drawable?
-        val iconMargin = (itemView.height - (ContextCompat.getDrawable(requireContext(), R.drawable.delete_message)?.intrinsicHeight ?: 0)) / 2
+        val iconMargin = (itemView.height - (ContextCompat.getDrawable(requireContext(), R.drawable.ic_recycler_delete)?.intrinsicHeight ?: 0)) / 2
         val position = viewHolder.adapterPosition
 
         // Validate position before drawing
@@ -171,16 +171,16 @@ class MessageFragment : Fragment() {
         if (dX > 0) {
             // Swipe right: show silent/un-silent icon
             icon = if (isSilent) {
-                ContextCompat.getDrawable(requireContext(), R.drawable.silent_swipe_message) // Silent icon
+                ContextCompat.getDrawable(requireContext(), R.drawable.ic_recycler_notification_silence) // Silent icon
             } else {
-                ContextCompat.getDrawable(requireContext(), R.drawable.un_silent_swipe_message) // Un-silent icon
+                ContextCompat.getDrawable(requireContext(), R.drawable.ic_recycler_notification_active) // Un-silent icon
             }
-            background = ContextCompat.getDrawable(requireContext(), R.drawable.swipe_silent)
+            background = ContextCompat.getDrawable(requireContext(), R.drawable.bg_swipe_icon_white)
             setBoundsForRightSwipe(itemView, icon, background, dX, iconMargin)
         } else {
             // Swipe left: show delete icon
-            icon = ContextCompat.getDrawable(requireContext(), R.drawable.delete_message)
-            background = ContextCompat.getDrawable(requireContext(), R.drawable.swipe_delete)
+            icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_recycler_delete)
+            background = ContextCompat.getDrawable(requireContext(), R.drawable.bg_swipe_icon_red)
             setBoundsForLeftSwipe(itemView, icon, background, dX, iconMargin)
         }
 
