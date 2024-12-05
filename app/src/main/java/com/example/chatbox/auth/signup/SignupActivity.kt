@@ -2,6 +2,7 @@ package com.example.chatbox.auth.signup
 
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -15,7 +16,6 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         // change color status bar and title
         setStatusBar()
         binding = ActivitySignupBinding.inflate(layoutInflater)
@@ -40,7 +40,6 @@ class SignupActivity : AppCompatActivity() {
         // to make the status bar transparent
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.statusBarColor = Color.TRANSPARENT
-        window.navigationBarColor = Color.BLACK
         // to change status bar title color
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }

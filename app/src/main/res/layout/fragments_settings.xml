@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DeepGreen">
+    android:background="@color/DeepGreen"
+    android:fitsSystemWindows="true"
+    >
 
     <ImageView
         android:id="@+id/Settings_back_arrow"
@@ -188,7 +190,7 @@
         <TextView
             android:id="@+id/tv_storageAndDataDescription"
             style="@style/SettingsDescriptionStyle"
-            android:text="@string/network_usage_stogare_usage"
+            android:text="@string/network_usage_storage_usage"
             app:layout_constraintStart_toEndOf="@id/ic_settings_storage"
             app:layout_constraintTop_toBottomOf="@id/tv_storageAndData" />
 

@@ -6,7 +6,7 @@
         android:color="#43116A" /> <!--selected text colour-->
     <item
         android:state_focused="true"
-        android:color="@color/white" />
+        android:color="@color/White" />
     <item
-        android:color="@color/white" /> <!--unselected text colour-->
+        android:color="@color/White" /> <!--unselected text colour-->
 </selector>

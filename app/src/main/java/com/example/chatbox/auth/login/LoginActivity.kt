@@ -17,11 +17,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // change colors of status bar and title
         setStatusBar()
-        // backArrow to startup Activity
         binding.backArrowIcon.setOnClickListener { backToStartupActivity() }
-        //swap to home Activity
         binding.loginButton.setOnClickListener { swapToMainActivity() }
     }
 

@@ -18,11 +18,11 @@
         <item name="colorSecondary">@color/secondaryGray</item> <!-- Secondary color used for supporting elements -->
 
         <!-- Background Color -->
-        <item name="android:windowBackground">@color/backgroundWhite</item> <!-- Background color of the app -->
+        <item name="android:windowBackground">@color/White</item> <!-- Background color of the app -->
 
         <!-- Text Color -->
         <item name="android:textColorPrimary">@color/textColorPrimary</item> <!-- Primary text color -->
-        <item name="android:textColorSecondary">@color/textColorSecondary</item> <!-- Secondary text color -->
+        <item name="android:textColorSecondary">@color/secondaryGray</item> <!-- Secondary text color -->
 
         <!-- TextField Color -->
         <item name="colorControlNormal">@color/primaryGreen</item> <!-- Color for text fields and form elements -->
@@ -41,7 +41,7 @@
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <!-- Set the splash screen background -->
         <item name="android:windowLightStatusBar">false</item>
-        <item name="windowSplashScreenBackground">@color/white</item> <!-- Splash background color -->
+        <item name="windowSplashScreenBackground">@color/White</item> <!-- Splash background color -->
         <item name="windowSplashScreenIconBackgroundColor">@android:color/white</item>
 
         <!-- Use windowSplashScreenAnimatedIcon to add a drawable or an animated drawable -->

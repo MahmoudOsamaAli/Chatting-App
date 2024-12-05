@@ -39,6 +39,12 @@
     <string name="chat">Chat</string>
     <string name="chat_history_theme_wallpapers">Chat history,theme,wallpapers</string>
     <string name="notifications">Notifications</string>
-    <string name="network_usage_stogare_usage">Network usage, stogare usage</string>
+    <string name="network_usage_storage_usage">Network usage, storage usage</string>
     <string name="mahmoud_tarek">Mahmoud Tarek</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="write_your_message">Write your message</string>
+    <string name="user_state">User State</string>
+    <string name="receive_message">receive Message</string>
+    <string name="user_name">User Name</string>
+    <string name="today">Today</string>
 </resources>
