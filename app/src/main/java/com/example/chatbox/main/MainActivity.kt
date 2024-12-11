@@ -10,7 +10,7 @@ import com.example.chatbox.R
 import com.example.chatbox.databinding.ActivityMainBinding
 import com.example.chatbox.main.fragments.calls.CallsFragment
 import com.example.chatbox.main.fragments.contacts.ContactsFragment
-import com.example.chatbox.main.fragments.home.ChatFragment
+import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
 import com.example.chatbox.main.fragments.home.HomeFragment
 import com.example.chatbox.main.fragments.settings.SettingsFragment
 

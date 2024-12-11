@@ -1,8 +1,5 @@
-package com.example.chatbox.main.fragments.home
+package com.example.chatbox.main.fragments.home.Chats.ChatMessages
 
-import ChatMessagesAdapter
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,12 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.chatbox.R
 import com.example.chatbox.data.FakeData
 import com.example.chatbox.databinding.FragmentChatMessagesBinding
 

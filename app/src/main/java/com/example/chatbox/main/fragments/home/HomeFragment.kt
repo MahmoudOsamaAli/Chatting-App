@@ -10,12 +10,13 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatbox.R
 import com.example.chatbox.data.FakeData
 import com.example.chatbox.databinding.FragmentsHomeBinding
-import com.example.chatbox.main.fragments.home.recyclerView.HomeChatsAdapter
+import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
+import com.example.chatbox.main.fragments.home.Chats.HomeChatsAdapter
+import com.example.chatbox.main.fragments.home.Stories.StatusAdapter
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -26,12 +27,13 @@ import com.google.android.material.snackbar.Snackbar
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentsHomeBinding
-    private lateinit var adapter: HomeChatsAdapter
+    private lateinit var chatsAdapter: HomeChatsAdapter
+    private lateinit var statusAdapter: StatusAdapter
+    private lateinit var statusList: List<FakeData.StatusInfo>
     private lateinit var chatsList: MutableList<FakeData.ChatInfo>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout and return the root view
         binding = FragmentsHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,22 +43,28 @@ class HomeFragment : Fragment() {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
-        setupSwipeToDeleteAndSilent(binding.recyclerViewMessages)
+        setupChatsRV()
+        setupStatusRV()
+        setupSwipeToDeleteAndSilent(binding.homeRvChats)
+
     }
+
+    private fun setupStatusRV() {
+        statusList = FakeData().getStatusInfo().toMutableList()
+        statusAdapter = StatusAdapter(statusList)
+        binding.homeRvStatus.adapter =this@HomeFragment.statusAdapter
+    }
+
 
     /**
      * Initialize the RecyclerView by setting its layout manager,
      * fetching the messages from FakeData, and assigning the adapter.
      */
-    private fun setupRecyclerView() {
-        val fakeData = FakeData()
-        chatsList = fakeData.getChatInfo().toMutableList()
-        adapter = HomeChatsAdapter(chatsList, this)
-        binding.recyclerViewMessages.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = this@HomeFragment.adapter
-        }
+    private fun setupChatsRV() {
+        chatsList = FakeData().getChatInfo().toMutableList()
+        chatsAdapter = HomeChatsAdapter(chatsList, this)
+        binding.homeRvChats.adapter = this@HomeFragment.chatsAdapter
+
     }
 
     /**
@@ -115,17 +123,17 @@ class HomeFragment : Fragment() {
         when (direction) {
             ItemTouchHelper.LEFT -> {
                 // Handle left swipe (delete)
-                val deletedItem = adapter.removeItem(position) // Remove message
+                val deletedItem = chatsAdapter.removeItem(position) // Remove message
                 if (deletedItem != null) {
-                    showUndoSnackbar(deletedItem, position) // Show Snackbar with undo option
+                    showUndoSnackBar(deletedItem, position) // Show SnackBar with undo option
                 }
             }
 
             ItemTouchHelper.RIGHT -> {
                 // Handle right swipe (toggle silent state)
-                adapter.toggleSilentItem(position) // Toggle silent status
+                chatsAdapter.toggleSilentItem(position) // Toggle silent status
                 saveSilentState(
-                    position, adapter.getSilentState(position)
+                    position, chatsAdapter.getSilentState(position)
                 ) // Save the new silent state
             }
         }
@@ -134,10 +142,10 @@ class HomeFragment : Fragment() {
     /**
      * Displays an undo option in a Snackbar after a message is deleted.
      */
-    private fun showUndoSnackbar(deletedItem: FakeData.ChatInfo, position: Int) {
-        Snackbar.make(binding.recyclerViewMessages, "Item Deleted", Snackbar.LENGTH_LONG)
+    private fun showUndoSnackBar(deletedItem: FakeData.ChatInfo, position: Int) {
+        Snackbar.make(binding.homeRvChats, "Item Deleted", Snackbar.LENGTH_LONG)
             .setAction("Undo") {
-                adapter.restoreItem(deletedItem, position) // Restore deleted message on undo
+                chatsAdapter.restoreItem(deletedItem, position) // Restore deleted message on undo
             }.show() // Display the Snack bar
     }
 
@@ -155,12 +163,12 @@ class HomeFragment : Fragment() {
         val position = viewHolder.adapterPosition
 
         // Validate position before drawing
-        if (position == RecyclerView.NO_POSITION || position < 0 || position >= adapter.itemCount) {
+        if (position == RecyclerView.NO_POSITION || position < 0 || position >= chatsAdapter.itemCount) {
             return
         }
 
         // Determine if the message is silent
-        val isSilent = adapter.getSilentState(position)
+        val isSilent = chatsAdapter.getSilentState(position)
 
         // Draw based on swipe direction
         if (dX > 0) {

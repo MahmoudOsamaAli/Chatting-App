@@ -70,6 +70,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">24dp</item>
         <item name="android:textColor">@color/White</item>
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">@font/caros</item>
@@ -118,7 +119,7 @@
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:background">@drawable/bg_fragment_default</item>
-        <item name="android:layout_marginTop">144dp</item>
+        <item name="android:layout_marginTop">72dp</item>
         
     </style>
 

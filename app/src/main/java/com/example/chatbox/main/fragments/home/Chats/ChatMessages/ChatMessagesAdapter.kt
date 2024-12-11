@@ -1,3 +1,5 @@
+package com.example.chatbox.main.fragments.home.Chats.ChatMessages
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +13,8 @@ class ChatMessagesAdapter(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
-        const val VIEW_TYPE_SEND = 1
-        const val VIEW_TYPE_RECEIVE = 2
+        const val VIEW_TYPE_SEND = 0
+        const val VIEW_TYPE_RECEIVE = 1
     }
 
     class RequestViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

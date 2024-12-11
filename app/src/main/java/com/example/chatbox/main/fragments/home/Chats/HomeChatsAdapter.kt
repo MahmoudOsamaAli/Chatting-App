@@ -1,4 +1,4 @@
-package com.example.chatbox.main.fragments.home.recyclerView
+package com.example.chatbox.main.fragments.home.Chats
 
 import MessagesDiffCallback
 import android.view.LayoutInflater

@@ -47,4 +47,6 @@
     <string name="receive_message">receive Message</string>
     <string name="user_name">User Name</string>
     <string name="today">Today</string>
+    <string name="my_status">My status</string>
+    <string name="privacy_security_change_number">Privacy, security, change number</string>
 </resources>

@@ -4,30 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/DeepGreen"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
     <ImageView
-        android:id="@+id/Settings_back_arrow"
+        android:id="@+id/settings_ic_back_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:src="@drawable/ic_back_arrow_white"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_settings"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_settings" />
+        app:layout_constraintTop_toTopOf="@+id/settings_header" />
 
     <TextView
-        android:id="@+id/tv_settings"
+        android:id="@+id/settings_header"
         style="@style/FragmentsNamesStyle"
         android:text="@string/settings"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/constraint_layout"
         style="@style/BgFragmentsStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +35,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/settingsProfilePicture"
+            android:id="@+id/settings_profile_picture"
             android:layout_width="68dp"
             android:layout_height="68dp"
             android:layout_marginStart="16dp"
@@ -49,27 +47,26 @@
             app:shapeAppearanceOverlay="@style/circleImageView" />
 
         <TextView
-            android:id="@+id/settingsUserName"
+            android:id="@+id/settings_user_name"
             style="@style/SettingsTitleStyle"
             android:layout_marginStart="8dp"
-
             android:text="@string/mahmoud_tarek"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/settingsProfilePicture"
-            app:layout_constraintStart_toEndOf="@+id/settingsProfilePicture"
+            app:layout_constraintBottom_toBottomOf="@+id/settings_profile_picture"
+            app:layout_constraintStart_toEndOf="@+id/settings_profile_picture"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/settingsUserBio"
+            android:id="@+id/settings_user_bio"
             style="@style/SettingsDescriptionStyle"
             android:text="@string/never_give_up"
             android:textSize="14sp"
             android:layout_marginStart="0dp"
-            app:layout_constraintStart_toStartOf="@+id/settingsUserName"
-            app:layout_constraintTop_toBottomOf="@+id/settingsUserName" />
+            app:layout_constraintStart_toStartOf="@+id/settings_user_name"
+            app:layout_constraintTop_toBottomOf="@+id/settings_user_name" />
 
         <ImageView
-            android:id="@+id/settingsUserQrCode"
+            android:id="@+id/settings_user_qr_code"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="24dp"
@@ -89,128 +86,127 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/settingsAccountIcon"
+            android:id="@+id/settings_img_account"
             style="@style/SettingsIcon"
+            android:layout_marginTop="40dp"
             android:src="@drawable/ic_settings_key"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settings_divider_line" />
 
         <TextView
-            android:id="@+id/tvAccount"
+            android:id="@+id/settings_tv_account"
             style="@style/SettingsTitleStyle"
             android:text="@string/account"
-            android:layout_marginTop="28dp"
-            app:layout_constraintStart_toStartOf="@+id/tvDescriptionAccount"
-            app:layout_constraintTop_toBottomOf="@+id/settings_divider_line" />
+            app:layout_constraintStart_toStartOf="@+id/settings_account_description"
+            app:layout_constraintTop_toTopOf="@+id/settings_img_account" />
 
         <TextView
-            android:id="@+id/tvDescriptionAccount"
+            android:id="@+id/settings_account_description"
             style="@style/SettingsDescriptionStyle"
-            android:text="Privacy, security, change number"
-            app:layout_constraintStart_toEndOf="@+id/settingsAccountIcon"
-            app:layout_constraintTop_toBottomOf="@+id/tvAccount" />
+            android:text="@string/privacy_security_change_number"
+            app:layout_constraintStart_toEndOf="@+id/settings_img_account"
+            app:layout_constraintTop_toBottomOf="@+id/settings_tv_account" />
 
         <ImageView
-            android:id="@+id/ic_settings_chat"
+            android:id="@+id/settings_ic_chat"
             style="@style/SettingsIcon"
             android:src="@drawable/ic_fragments_chat"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settingsAccountIcon" />
+            app:layout_constraintTop_toBottomOf="@id/settings_img_account" />
 
         <TextView
-            android:id="@+id/tvChat"
+            android:id="@+id/settings_tv_chat"
             style="@style/SettingsTitleStyle"
             android:text="@string/chat"
-            app:layout_constraintStart_toStartOf="@+id/tvDescriptionChat"
-            app:layout_constraintTop_toTopOf="@+id/ic_settings_chat" />
+            app:layout_constraintStart_toStartOf="@+id/settings_description_chat"
+            app:layout_constraintTop_toTopOf="@+id/settings_ic_chat" />
 
         <TextView
-            android:id="@+id/tvDescriptionChat"
+            android:id="@+id/settings_description_chat"
             style="@style/SettingsDescriptionStyle"
             android:text="@string/chat_history_theme_wallpapers"
-            app:layout_constraintStart_toEndOf="@id/ic_settings_chat"
-            app:layout_constraintTop_toBottomOf="@id/tvChat" />
+            app:layout_constraintStart_toEndOf="@id/settings_ic_chat"
+            app:layout_constraintTop_toBottomOf="@id/settings_tv_chat" />
 
         <ImageView
-            android:id="@+id/ic_settings_notifications"
+            android:id="@+id/settings_ic_notifications"
             style="@style/SettingsIcon"
             android:src="@drawable/ic_settings_notification"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_settings_chat" />
+            app:layout_constraintTop_toBottomOf="@id/settings_ic_chat" />
 
         <TextView
-            android:id="@+id/tvNotifications"
+            android:id="@+id/settings_tv_notifications"
             style="@style/SettingsTitleStyle"
             android:text="@string/notifications"
-            app:layout_constraintStart_toStartOf="@+id/tvDescriptionNotifications"
-            app:layout_constraintTop_toTopOf="@+id/ic_settings_notifications" />
+            app:layout_constraintStart_toStartOf="@+id/settings_description_notifications"
+            app:layout_constraintTop_toTopOf="@+id/settings_ic_notifications" />
 
         <TextView
-            android:id="@+id/tvDescriptionNotifications"
+            android:id="@+id/settings_description_notifications"
             style="@style/SettingsDescriptionStyle"
             android:text="@string/messages_group_and_others"
-            app:layout_constraintStart_toEndOf="@id/ic_settings_notifications"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifications" />
+            app:layout_constraintStart_toEndOf="@id/settings_ic_notifications"
+            app:layout_constraintTop_toBottomOf="@id/settings_tv_notifications" />
 
         <ImageView
-            android:id="@+id/ic_settings_help"
+            android:id="@+id/settings_ic_help"
             style="@style/SettingsIcon"
             android:src="@drawable/ic_settings_help"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_settings_notifications" />
+            app:layout_constraintTop_toBottomOf="@id/settings_ic_notifications" />
 
         <TextView
-            android:id="@+id/tv_settings_help"
+            android:id="@+id/settings_tv_help"
             style="@style/SettingsTitleStyle"
             android:text="@string/help"
-            app:layout_constraintStart_toStartOf="@+id/tv_helpDescription"
-            app:layout_constraintTop_toTopOf="@+id/ic_settings_help" />
+            app:layout_constraintStart_toStartOf="@+id/settings_description_help"
+            app:layout_constraintTop_toTopOf="@+id/settings_ic_help" />
 
         <TextView
-            android:id="@+id/tv_helpDescription"
+            android:id="@+id/settings_description_help"
             style="@style/SettingsDescriptionStyle"
             android:text="@string/help_center_contact_us_privacy_policy"
-            app:layout_constraintStart_toEndOf="@id/ic_settings_help"
-            app:layout_constraintTop_toBottomOf="@id/tv_settings_help" />
+            app:layout_constraintStart_toEndOf="@id/settings_ic_help"
+            app:layout_constraintTop_toBottomOf="@id/settings_tv_help" />
+
+
+        <TextView
+            android:id="@+id/settings_description_storage"
+            style="@style/SettingsDescriptionStyle"
+            android:text="@string/network_usage_storage_usage"
+            app:layout_constraintStart_toEndOf="@id/settings_ic_storage"
+            app:layout_constraintTop_toBottomOf="@id/settings_tv_storage" />
 
         <ImageView
-            android:id="@+id/ic_settings_storage"
+            android:id="@+id/settings_ic_storage"
             style="@style/SettingsIcon"
             android:src="@drawable/ic_settings_storage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_settings_help" />
+            app:layout_constraintTop_toBottomOf="@id/settings_ic_help" />
 
         <TextView
-            android:id="@+id/tv_storageAndData"
+            android:id="@+id/settings_tv_storage"
             style="@style/SettingsTitleStyle"
             android:text="@string/storage_and_data"
-            app:layout_constraintStart_toStartOf="@+id/tv_storageAndDataDescription"
-            app:layout_constraintTop_toTopOf="@+id/ic_settings_storage" />
-
-        <TextView
-            android:id="@+id/tv_storageAndDataDescription"
-            style="@style/SettingsDescriptionStyle"
-            android:text="@string/network_usage_storage_usage"
-            app:layout_constraintStart_toEndOf="@id/ic_settings_storage"
-            app:layout_constraintTop_toBottomOf="@id/tv_storageAndData" />
+            app:layout_constraintStart_toStartOf="@+id/settings_description_storage"
+            app:layout_constraintTop_toTopOf="@+id/settings_ic_storage" />
 
         <ImageView
-            android:id="@+id/ic_settings_invite"
+            android:id="@+id/settings_ic_invite"
             style="@style/SettingsIcon"
-            android:layout_marginBottom="24dp"
             android:src="@drawable/ic_settings_invite"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_settings_storage" />
+            app:layout_constraintTop_toBottomOf="@id/settings_ic_storage" />
 
         <TextView
-            android:id="@+id/tv_settingInvite"
+            android:id="@+id/settings_tv_invite"
             style="@style/SettingsTitleStyle"
             android:layout_marginStart="20dp"
             android:text="@string/invite_a_friend"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_settings_invite"
-            app:layout_constraintStart_toEndOf="@+id/ic_settings_invite"
-            app:layout_constraintTop_toTopOf="@+id/ic_settings_invite" />
+            app:layout_constraintBottom_toBottomOf="@+id/settings_ic_invite"
+            app:layout_constraintStart_toEndOf="@+id/settings_ic_invite"
+            app:layout_constraintTop_toTopOf="@+id/settings_ic_invite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/DeepGreen"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <FrameLayout
+        android:id="@+id/status_fl_profile_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/status_progress_me"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            app:indicatorSize="58dp"
+            app:trackThickness="1.3dp"
+            app:trackColor="@color/bgChatDate" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/status_profile_picture_me"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_profile_user"
+            android:layout_gravity="center"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
+
+        <FrameLayout
+            android:id="@+id/status_add_new_story"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/status_fl_profile_picture"
+            app:layout_constraintEnd_toEndOf="@+id/status_fl_profile_picture">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/bg_add_new_story" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_add_new_story" />
+        </FrameLayout>
+    </FrameLayout>
+    <TextView
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:text="@string/my_status"
+        android:fontFamily="@font/caros"
+        android:textColor="@color/White"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/status_fl_profile_picture"
+        app:layout_constraintStart_toStartOf="@+id/status_fl_profile_picture"
+        app:layout_constraintTop_toBottomOf="@+id/status_fl_profile_picture" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

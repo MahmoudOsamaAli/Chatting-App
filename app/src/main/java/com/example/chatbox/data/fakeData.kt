@@ -1,25 +1,125 @@
 package com.example.chatbox.data
 
-import kotlin.contracts.contract
-
 class FakeData {
     data class ChatInfo(
-        val name: String,
-        val content: String,
-        var isSilent: Boolean
+        val name: String, val content: String, var isSilent: Boolean
     ) // Change Unit to Boolean
 
 
-// Data class representing a chat message
+    // Data class representing a chat message
     data class ChatMessage(
-    val text: String,       // Message content
-    val time: String,       // Message timestamp
-    var isCurrentUser: Boolean // True if the message is sent by the current user
+        val text: String,       // Message content
+        val time: String,       // Message timestamp
+        var isCurrentUser: Boolean // True if the message is sent by the current user
     )
+
+    data class StatusInfo(
+        val userName: String, val isStatusNew: Boolean
+    )
+
+    fun getStatusInfo(): List<StatusInfo> {
+        return listOf(
+            StatusInfo("Ahmed", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Ziad", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Abeer", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Nemo", true),
+            StatusInfo("Ziad", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Abeer", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Nemo", true),
+            StatusInfo("Mustafa", true),
+            StatusInfo("Tarek", false),
+            StatusInfo("Rodina", false),
+            StatusInfo("Mustafa", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Nemo", true),
+            StatusInfo("Tarek", false),
+            StatusInfo("Rodina", false)
+
+
+        )
+
+
+    }
+
 
     // Function to simulate getting chat messages
     fun getChatMessages(): List<ChatMessage> {
-        val currentUserId = "current_user" // Replace with dynamic user ID in real scenarios
 
         return listOf(
             ChatMessage("Hello! How are you?", "09:00 AM", false),
@@ -56,19 +156,110 @@ class FakeData {
     fun getChatInfo(): List<ChatInfo> {
 
         val names = listOf(
-            "Mahmoud", "Bob", "Hamdy", "Marwan", "Ali", "Waad", "Nada", "Donia",
-            "Dina", "Tamar", "Hagar", "Sara", "Osama", "Salama", "Mostafa", "Karem",
-            "DoDo", "Badr", "Twfiq", "Sasa", "Said", "Nessma", "Ahmed", "Fatma",
-            "Do7a", "Hady", "Yousef", "Shahd", "Mom", "Hassan", "Joo", "Zaid",
-            "Yomnna", "Mohamed", "Kareem", "Rawda", "7oda", "Alaa", "Hadi", "Dalia",
-            "Tariq", "Samira", "Salem", "Hana", "Layla", "Zain", "Nour", "Hadiya",
-            "Jamil", "Rami", "Ibrahim", "Khaled", "Tamer", "Hossam", "Mona", "Lina",
-            "Fadya", "Yara", "Joud", "Ranya", "Dina", "Hadi", "Khalil", "Farah",
-            "Omar", "Rida", "Mira", "Amira", "Anwar", "Tania", "Maha", "Sophie",
-            "Nadia", "Yasmin", "Abdul", "Wissam", "Amani", "Hana", "Salma", "Maya",
-            "Nadia", "Ranya", "Jasmin", "Fadi", "Hassan", "Zainab", "Saeed", "Areej",
-            "Yousef", "Zara", "Faris", "Marwan", "Khadija", "Jamal", "Mohsen", "Adel",
-            "Sami", "Waleed", "Safia", "Kareem", "Dania", "Nadia", "Maysaa", "Samy"
+            "Mahmoud",
+            "Bob",
+            "Hamdy",
+            "Marwan",
+            "Ali",
+            "Waad",
+            "Nada",
+            "Donia",
+            "Dina",
+            "Tamar",
+            "Hagar",
+            "Sara",
+            "Osama",
+            "Salama",
+            "Mostafa",
+            "Karem",
+            "DoDo",
+            "Badr",
+            "Twfiq",
+            "Sasa",
+            "Said",
+            "Nessma",
+            "Ahmed",
+            "Fatma",
+            "Do7a",
+            "Hady",
+            "Yousef",
+            "Shahd",
+            "Mom",
+            "Hassan",
+            "Joo",
+            "Zaid",
+            "Yomnna",
+            "Mohamed",
+            "Kareem",
+            "Rawda",
+            "7oda",
+            "Alaa",
+            "Hadi",
+            "Dalia",
+            "Tariq",
+            "Samira",
+            "Salem",
+            "Hana",
+            "Layla",
+            "Zain",
+            "Nour",
+            "Hadiya",
+            "Jamil",
+            "Rami",
+            "Ibrahim",
+            "Khaled",
+            "Tamer",
+            "Hossam",
+            "Mona",
+            "Lina",
+            "Fadya",
+            "Yara",
+            "Joud",
+            "Ranya",
+            "Dina",
+            "Hadi",
+            "Khalil",
+            "Farah",
+            "Omar",
+            "Rida",
+            "Mira",
+            "Amira",
+            "Anwar",
+            "Tania",
+            "Maha",
+            "Sophie",
+            "Nadia",
+            "Yasmin",
+            "Abdul",
+            "Wissam",
+            "Amani",
+            "Hana",
+            "Salma",
+            "Maya",
+            "Nadia",
+            "Ranya",
+            "Jasmin",
+            "Fadi",
+            "Hassan",
+            "Zainab",
+            "Saeed",
+            "Areej",
+            "Yousef",
+            "Zara",
+            "Faris",
+            "Marwan",
+            "Khadija",
+            "Jamal",
+            "Mohsen",
+            "Adel",
+            "Sami",
+            "Waleed",
+            "Safia",
+            "Kareem",
+            "Dania",
+            "Nadia",
+            "Maysaa",
+            "Samy"
         )
 
         val lastMessage = mutableListOf(
