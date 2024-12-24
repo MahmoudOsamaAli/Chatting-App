@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.chatbox.R
 
 class SettingsFragment : Fragment() {
+    companion object{
+        const val Tag = "SettingsFragment"
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

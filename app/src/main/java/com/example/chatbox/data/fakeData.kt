@@ -1,30 +1,268 @@
 package com.example.chatbox.data
 
 class FakeData {
-    data class Message(
-        val name: String,
-        val content: String,
-        var isSilent: Boolean
+    data class ChatInfo(
+        val name: String, val content: String, var isSilent: Boolean
     ) // Change Unit to Boolean
 
-    fun getMessages(): List<Message> {
-        val names = listOf(
-            "Mahmoud", "Bob", "Hamdy", "Marwan", "Ali", "Waad", "Nada", "Donia",
-            "Dina", "Tamar", "Hagar", "Sara", "Osama", "Salama", "Mostafa", "Karem",
-            "DoDo", "Badr", "Twfiq", "Sasa", "Said", "Nessma", "Ahmed", "Fatma",
-            "Do7a", "Hady", "Yousef", "Shahd", "Mom", "Hassan", "Joo", "Zaid",
-            "Yomnna", "Mohamed", "Kareem", "Rawda", "7oda", "Alaa", "Hadi", "Dalia",
-            "Tariq", "Samira", "Salem", "Hana", "Layla", "Zain", "Nour", "Hadiya",
-            "Jamil", "Rami", "Ibrahim", "Khaled", "Tamer", "Hossam", "Mona", "Lina",
-            "Fadya", "Yara", "Joud", "Ranya", "Dina", "Hadi", "Khalil", "Farah",
-            "Omar", "Rida", "Mira", "Amira", "Anwar", "Tania", "Maha", "Sophie",
-            "Nadia", "Yasmin", "Abdul", "Wissam", "Amani", "Hana", "Salma", "Maya",
-            "Nadia", "Ranya", "Jasmin", "Fadi", "Hassan", "Zainab", "Saeed", "Areej",
-            "Yousef", "Zara", "Faris", "Marwan", "Khadija", "Jamal", "Mohsen", "Adel",
-            "Sami", "Waleed", "Safia", "Kareem", "Dania", "Nadia", "Maysaa", "Samy"
+
+    // Data class representing a chat message
+    data class ChatMessage(
+        val text: String,       // Message content
+        val time: String,       // Message timestamp
+        var isCurrentUser: Boolean // True if the message is sent by the current user
+    )
+
+    data class StatusInfo(
+        val userName: String, val isStatusNew: Boolean
+    )
+
+    fun getStatusInfo(): List<StatusInfo> {
+        return listOf(
+            StatusInfo("Ahmed", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Ziad", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Abeer", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Nemo", true),
+            StatusInfo("Ziad", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mohamed", true),
+            StatusInfo("Salma", true),
+            StatusInfo("Reda", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Mahmoud", true),
+            StatusInfo("Mariam", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Fatma", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Hady", true),
+            StatusInfo("Abeer", true),
+            StatusInfo("Isel", true),
+            StatusInfo("Nada", true),
+            StatusInfo("Aya", true),
+            StatusInfo("Farah", true),
+            StatusInfo("Yousef", true),
+            StatusInfo("Farida", true),
+            StatusInfo("Islam", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Nemo", true),
+            StatusInfo("Mustafa", true),
+            StatusInfo("Tarek", false),
+            StatusInfo("Rodina", false),
+            StatusInfo("Mustafa", true),
+            StatusInfo("Hoda", true),
+            StatusInfo("Nemo", true),
+            StatusInfo("Tarek", false),
+            StatusInfo("Rodina", false)
+
+
         )
 
-        val messages = listOf(
+
+    }
+
+
+    // Function to simulate getting chat messages
+    fun getChatMessages(): List<ChatMessage> {
+
+        return listOf(
+            ChatMessage("Hello! How are you?", "09:00 AM", false),
+            ChatMessage("I'm good, thanks! How about you?", "09:01 AM", true),
+            ChatMessage("I'm doing well. Busy with work, though.", "09:03 AM", false),
+            ChatMessage("I understand! Let’s catch up sometime.", "09:05 AM", true),
+            ChatMessage("Sounds good! Let's plan for the weekend.", "09:06 AM", false),
+            ChatMessage("Perfect! I'll call you then.", "09:07 AM", true),
+            ChatMessage("By the way, did you finish that project?", "09:10 AM", false),
+            ChatMessage("Not yet, still working on it. Almost done!", "09:11 AM", true),
+            ChatMessage("Cool! Looking forward to seeing it.", "09:12 AM", false),
+            ChatMessage("I'll show you as soon as it’s ready!", "09:13 AM", true),
+            ChatMessage("Great! Let me know if you need any help.", "09:15 AM", false),
+            ChatMessage("Thanks, I really appreciate it.", "09:16 AM", true),
+            ChatMessage("No problem at all!", "09:17 AM", false),
+            ChatMessage("Hey, do you have plans this evening?", "05:20 PM", false),
+            ChatMessage("Not really. What's up?", "05:21 PM", true),
+            ChatMessage("Thinking of grabbing dinner. You in?", "05:22 PM", false),
+            ChatMessage("Sure, sounds good!", "05:23 PM", true),
+            ChatMessage("Nice. I'll pick you up at 7?", "05:25 PM", false),
+            ChatMessage("Perfect, see you then!", "05:26 PM", true),
+            ChatMessage("See you!", "05:27 PM", false),
+            ChatMessage("Did you watch the game last night?", "09:00 PM", false),
+            ChatMessage("Yeah! It was intense.", "09:01 PM", true),
+            ChatMessage("That last-minute goal was unbelievable!", "09:03 PM", false),
+            ChatMessage("I know! I was on the edge of my seat.", "09:05 PM", true),
+            ChatMessage("Let's watch the next one together.", "09:06 PM", false),
+            ChatMessage("Definitely! It'll be more fun that way.", "09:07 PM", true),
+            ChatMessage("Alright, catch you later!", "09:08 PM", false),
+            ChatMessage("Later!", "09:09 PM", true)
+        )
+    }
+
+    fun getChatInfo(): List<ChatInfo> {
+
+        val names = listOf(
+            "Mahmoud",
+            "Bob",
+            "Hamdy",
+            "Marwan",
+            "Ali",
+            "Waad",
+            "Nada",
+            "Donia",
+            "Dina",
+            "Tamar",
+            "Hagar",
+            "Sara",
+            "Osama",
+            "Salama",
+            "Mostafa",
+            "Karem",
+            "DoDo",
+            "Badr",
+            "Twfiq",
+            "Sasa",
+            "Said",
+            "Nessma",
+            "Ahmed",
+            "Fatma",
+            "Do7a",
+            "Hady",
+            "Yousef",
+            "Shahd",
+            "Mom",
+            "Hassan",
+            "Joo",
+            "Zaid",
+            "Yomnna",
+            "Mohamed",
+            "Kareem",
+            "Rawda",
+            "7oda",
+            "Alaa",
+            "Hadi",
+            "Dalia",
+            "Tariq",
+            "Samira",
+            "Salem",
+            "Hana",
+            "Layla",
+            "Zain",
+            "Nour",
+            "Hadiya",
+            "Jamil",
+            "Rami",
+            "Ibrahim",
+            "Khaled",
+            "Tamer",
+            "Hossam",
+            "Mona",
+            "Lina",
+            "Fadya",
+            "Yara",
+            "Joud",
+            "Ranya",
+            "Dina",
+            "Hadi",
+            "Khalil",
+            "Farah",
+            "Omar",
+            "Rida",
+            "Mira",
+            "Amira",
+            "Anwar",
+            "Tania",
+            "Maha",
+            "Sophie",
+            "Nadia",
+            "Yasmin",
+            "Abdul",
+            "Wissam",
+            "Amani",
+            "Hana",
+            "Salma",
+            "Maya",
+            "Nadia",
+            "Ranya",
+            "Jasmin",
+            "Fadi",
+            "Hassan",
+            "Zainab",
+            "Saeed",
+            "Areej",
+            "Yousef",
+            "Zara",
+            "Faris",
+            "Marwan",
+            "Khadija",
+            "Jamal",
+            "Mohsen",
+            "Adel",
+            "Sami",
+            "Waleed",
+            "Safia",
+            "Kareem",
+            "Dania",
+            "Nadia",
+            "Maysaa",
+            "Samy"
+        )
+
+        val lastMessage = mutableListOf(
             "How are you?",
             "Are you okay?",
             "Haha haha",
@@ -106,9 +344,9 @@ class FakeData {
 
         return names.mapIndexed { index, name ->
             // Randomly assign silent status (true or false)
-            Message(
+            ChatInfo(
                 name = name,
-                content = messages.getOrElse(index % messages.size) { "" },
+                content = lastMessage.getOrElse(index % lastMessage.size) { "" },
                 isSilent = false
             ) // You can set this to true or false as needed
         }

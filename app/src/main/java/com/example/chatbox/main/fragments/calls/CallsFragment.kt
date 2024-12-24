@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.chatbox.R
 
 class CallsFragment : Fragment() {
+    companion object{
+        const val Tag = "CallsFragment"
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -15,4 +18,5 @@ class CallsFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragments_calls,container,false)
     }
+
 }
