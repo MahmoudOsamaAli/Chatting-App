@@ -3,6 +3,7 @@ package com.example.chatbox.main.fragments.home
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.nfc.Tag
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,9 @@ import com.google.android.material.snackbar.Snackbar
  */
 class HomeFragment : Fragment() {
 
+    companion object{
+        const val Tag = "HomeFragment"
+    }
     private lateinit var binding: FragmentsHomeBinding
     private lateinit var chatsAdapter: HomeChatsAdapter
     private lateinit var statusAdapter: StatusAdapter

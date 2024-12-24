@@ -120,7 +120,19 @@
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:background">@drawable/bg_fragment_default</item>
         <item name="android:layout_marginTop">72dp</item>
-        
+    </style>
+    <style name="itemMessage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="maxWidth">240dp</item>
+        <item name="android:ellipsize">none</item>
+        <item name="singleLine">false</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">24dp</item>
+
     </style>
 
 

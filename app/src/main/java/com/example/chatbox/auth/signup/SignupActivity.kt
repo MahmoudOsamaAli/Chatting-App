@@ -12,7 +12,8 @@ import com.example.chatbox.auth.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivitySignupBinding
 import com.example.chatbox.main.MainActivity
 
-class SignupActivity : AppCompatActivity() {
+class
+SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class SignupActivity : AppCompatActivity() {
     private fun backToStartupActivity() {
         val intent = Intent(this, StartupActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun setStatusBar() {

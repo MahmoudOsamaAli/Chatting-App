@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     private fun swapToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun backToStartupActivity() {

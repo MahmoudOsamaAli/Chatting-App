@@ -31,7 +31,7 @@ class StartupActivity : AppCompatActivity() {
         actionBar?.hide()
         setContentView(binding.root)
         // Switching from startup Activity to Login Activity
-        binding.LogIn.setOnClickListener { switchingToLonginActivity() }
+        binding.btnLogin.setOnClickListener { switchingToLonginActivity() }
         // switching to signup Activity
         binding.BtnSignUp.setOnClickListener { swapToSignupActivity() }
 

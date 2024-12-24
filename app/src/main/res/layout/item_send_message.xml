@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="32dp"
+    android:layout_marginVertical="8dp">
+
     <TextView
         android:id="@+id/itemMessageSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send Message"
-        android:textColor="@color/White"
+        style="@style/itemMessage"
         android:background="@drawable/shape_message_send"
-        android:padding="8dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/send_message"
+        tools:text="Chat history,theme,wallpapers"
+        android:textColor="@color/White"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="12dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <TextView
         android:id="@+id/itemMessageSendTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="4dp"
         android:text="9:25 AM"
+        android:textColor="@color/tvStartupTitle"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@id/itemMessageSend"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintTop_toBottomOf="@id/itemMessageSend"
-        android:layout_marginStart="8dp"
-        android:textColor="#797C7B"/>
-
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/itemMessageSend"
+        app:layout_constraintEnd_toEndOf="@id/itemMessageSend" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

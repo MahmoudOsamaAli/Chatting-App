@@ -64,7 +64,7 @@
         android:fontFamily="@font/circular_std"
         android:text="@string/About_Our_Application"
         android:textColor="@color/tvStartupTitle"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="64dp"
         android:lineHeight="26dp"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_logo_facebook"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/ic_bg_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/google_login"
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:src="@drawable/ic_logo_google"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/ic_bg_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -112,14 +112,14 @@
         android:id="@+id/startup_or_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:letterSpacing="0.1"
         android:text="@string/or"
         android:textColor="@color/White"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/login_dividerLine1"
         app:layout_constraintEnd_toStartOf="@id/login_dividerLine2"
+        app:layout_constraintStart_toEndOf="@id/login_dividerLine1"
         app:layout_constraintTop_toBottomOf="@id/facebook_login" />
 
     <View
@@ -141,40 +141,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/startup_or_Text"
-        app:layout_constraintBottom_toTopOf="@id/Existing_account"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         style="@style/MyButtonStyle" />
 
-    <TextView
-        android:id="@+id/Existing_account"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/MyButtonStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/existing_account"
-        android:textSize="16sp"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/tvStartupTitle"
-        android:fontFamily="@font/circular_std"
-        android:gravity="center"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/Btn_SignUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/LogIn"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/LogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/circular_std"
-        android:gravity="center"
-        android:text="@string/log_in"
-        android:textColor="@drawable/selector_text_startup_color"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Existing_account"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="32dp"
+        android:text="@string/login"
+        android:textColor="@drawable/selector_button_startup_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/Existing_account"
-        app:layout_constraintTop_toTopOf="@id/Existing_account" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_SignUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

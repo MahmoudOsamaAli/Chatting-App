@@ -49,4 +49,11 @@
     <string name="today">Today</string>
     <string name="my_status">My status</string>
     <string name="privacy_security_change_number">Privacy, security, change number</string>
+    <string name="login">Login</string>
+    <string name="_9_25_am">9:25 AM</string>
+    <string name="send_message">send Message</string>
+    <string name="message">Message</string>
+    <string name="callsItem">Calls</string>
+    <string name="contactsitem">Contacts</string>
+    <string name="settingsItem">Settings</string>
 </resources>
