@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="true"
+        android:color="@color/White" /> <!--selected text colour-->
+    <item
+        android:state_focused="true"
+        android:color="@color/textColorPrimary" />
+    <item
+        android:color="@color/textColorPrimary" /> <!--unselected text colour-->
+</selector>
