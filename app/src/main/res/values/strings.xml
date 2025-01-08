@@ -56,5 +56,7 @@
     <string name="callsItem">Calls</string>
     <string name="contactsitem">Contacts</string>
     <string name="settingsItem">Settings</string>
-    <string name="default_web_client_id">1081437947696-6uf1m0dg1msbt5n00h44vmpqj5rrp08j.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">AIzaSyB1MXBQV2-bSOs-wXdJPWpx7H0q2UTs7r0</string>
+    <string name="login_phone_number">ADD PHONE NUMBER</string>
+    <string name="join">Join</string>
 </resources>

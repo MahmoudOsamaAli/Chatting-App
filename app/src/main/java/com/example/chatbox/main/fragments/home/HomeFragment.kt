@@ -5,13 +5,16 @@ import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.chatbox.R
 import com.example.chatbox.data.FakeData
 import com.example.chatbox.databinding.FragmentsHomeBinding
@@ -19,6 +22,9 @@ import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
 import com.example.chatbox.main.fragments.home.Chats.HomeChatsAdapter
 import com.example.chatbox.main.fragments.home.Stories.StatusAdapter
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.FirebaseDatabase
 
 /**
  * A Fragment representing the messages screen.
@@ -40,17 +46,37 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentsHomeBinding.inflate(inflater, container, false)
         return binding.root
-    }
+        }
 
     /**
      * Set up RecyclerView and swipe actions after the view is created.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        getProfilePicture()
+
         setupChatsRV()
         setupStatusRV()
         setupSwipeToDeleteAndSilent(binding.homeRvChats)
 
+    }
+
+    private fun getProfilePicture() {
+        val databaseRef = FirebaseDatabase.getInstance().getReference("users")
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        databaseRef.child("profilePicture").get()
+            .addOnSuccessListener {snapshot ->
+                val profilePicture = snapshot.value.toString()
+                loadProfilePicture(profilePicture)           }
+            .addOnFailureListener {exception ->
+                Log.e("Firebase", "Error fetching profile picture", exception)            }
+    }
+
+    private fun loadProfilePicture(profilePicture: String) {
+        Glide.with(this)
+            .load(profilePicture)
+            .into(binding.homeImgProfile)
     }
 
     private fun setupStatusRV() {

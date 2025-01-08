@@ -5,19 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.chatbox.R
 import com.example.chatbox.databinding.ActivityMainBinding
-import com.example.chatbox.main.fragments.calls.CallsFragment
-import com.example.chatbox.main.fragments.contacts.ContactsFragment
 import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
-import com.example.chatbox.main.fragments.home.HomeFragment
-import com.example.chatbox.main.fragments.settings.SettingsFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 
 class MainActivity : AppCompatActivity() {
