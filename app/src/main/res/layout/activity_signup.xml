@@ -40,68 +40,78 @@
         app:layout_constraintStart_toStartOf="@+id/signup_main_title"
         app:layout_constraintTop_toBottomOf="@+id/signup_main_title" />
 
-    <TextView
-        android:id="@+id/signup_Name_Label"
-        style="@style/AuthLabelStyle"
-        android:layout_marginTop="64dp"
-        android:text="@string/your_name"
-        app:layout_constraintStart_toStartOf="@+id/signup_UserName_ET"
-        app:layout_constraintTop_toBottomOf="@+id/signup_SubTitle" />
+<!--    <TextView-->
+<!--        android:id="@+id/signup_Name_Label"-->
+<!--        style="@style/AuthLabelStyle"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:text="@string/your_name"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/signup_UserName_ET"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_SubTitle" />-->
 
+<!--    <EditText-->
+<!--        android:id="@+id/signup_UserName_ET"-->
+<!--        style="@style/AuthTextFieldStyle"-->
+<!--        android:inputType="text"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_Name_Label" />-->
+
+<!--    <TextView-->
+<!--        style="@style/AuthLabelStyle"-->
+<!--        android:text="@string/your_email"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/signup_Email_ET"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/signup_Email_ET" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/signup_Email_ET"-->
+<!--        style="@style/AuthTextFieldStyle"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:inputType="textWebEmailAddress"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/signup_Password_ET"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/signup_UserName_ET"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/signup_UserName_ET"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_UserName_ET" />-->
+
+<!--    <TextView-->
+<!--        style="@style/AuthLabelStyle"-->
+<!--        android:text="@string/Password"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/signup_Password_ET"-->
+<!--        app:layout_constraintStart_toStartOf="@id/signup_Password_ET" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/signup_Password_ET"-->
+<!--        style="@style/AuthTextFieldStyle"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:inputType="textPassword"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/signup_PasswordConfirm_ET"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/signup_Email_ET"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/signup_Email_ET"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_Email_ET" />-->
+
+<!--    <TextView-->
+<!--        style="@style/AuthLabelStyle"-->
+<!--        android:text="@string/confirm_password"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/signup_PasswordConfirm_ET"-->
+<!--        app:layout_constraintStart_toStartOf="@id/signup_PasswordConfirm_ET" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/signup_PasswordConfirm_ET"-->
+<!--        style="@style/AuthTextFieldStyle"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:inputType="textPassword"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/signup_Password_ET"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/signup_Password_ET"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_Password_ET" />-->
     <EditText
-        android:id="@+id/signup_UserName_ET"
+        android:id="@+id/signup_phone_number"
         style="@style/AuthTextFieldStyle"
-        android:inputType="text"
+        android:layout_marginTop="4dp"
+        android:hint="@string/login_phone_number"
+        android:inputType="phone|number"
+        app:layout_constraintBottom_toTopOf="@+id/btn_create_an_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_Name_Label" />
-
-    <TextView
-        style="@style/AuthLabelStyle"
-        android:text="@string/your_email"
-        app:layout_constraintBottom_toTopOf="@+id/signup_Email_ET"
-        app:layout_constraintStart_toStartOf="@+id/signup_Email_ET" />
-
-    <EditText
-        android:id="@+id/signup_Email_ET"
-        style="@style/AuthTextFieldStyle"
-        android:layout_marginTop="32dp"
-        android:inputType="textWebEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/signup_Password_ET"
-        app:layout_constraintEnd_toEndOf="@+id/signup_UserName_ET"
-        app:layout_constraintStart_toStartOf="@+id/signup_UserName_ET"
-        app:layout_constraintTop_toBottomOf="@+id/signup_UserName_ET" />
-
-    <TextView
-        style="@style/AuthLabelStyle"
-        android:text="@string/Password"
-        app:layout_constraintBottom_toTopOf="@id/signup_Password_ET"
-        app:layout_constraintStart_toStartOf="@id/signup_Password_ET" />
-
-    <EditText
-        android:id="@+id/signup_Password_ET"
-        style="@style/AuthTextFieldStyle"
-        android:layout_marginTop="32dp"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/signup_PasswordConfirm_ET"
-        app:layout_constraintEnd_toEndOf="@+id/signup_Email_ET"
-        app:layout_constraintStart_toStartOf="@+id/signup_Email_ET"
-        app:layout_constraintTop_toBottomOf="@+id/signup_Email_ET" />
-
-    <TextView
-        style="@style/AuthLabelStyle"
-        android:text="@string/confirm_password"
-        app:layout_constraintBottom_toTopOf="@id/signup_PasswordConfirm_ET"
-        app:layout_constraintStart_toStartOf="@id/signup_PasswordConfirm_ET" />
-
-    <EditText
-        android:id="@+id/signup_PasswordConfirm_ET"
-        style="@style/AuthTextFieldStyle"
-        android:layout_marginTop="32dp"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/signup_Password_ET"
-        app:layout_constraintStart_toStartOf="@+id/signup_Password_ET"
-        app:layout_constraintTop_toBottomOf="@+id/signup_Password_ET" />
+        app:layout_constraintTop_toBottomOf="@id/signup_SubTitle" />
 
     <Button
         android:id="@+id/btn_create_an_account"

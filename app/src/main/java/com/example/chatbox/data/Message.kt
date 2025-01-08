@@ -1,0 +1,9 @@
+package com.example.chatbox.data
+
+import com.google.firebase.Timestamp
+
+data class Message(
+    val senderId : String = "",
+    val text : String = "",
+    val timestamp: Long = System.currentTimeMillis()
+)
