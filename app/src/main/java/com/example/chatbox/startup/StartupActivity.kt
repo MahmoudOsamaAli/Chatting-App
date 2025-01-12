@@ -1,4 +1,4 @@
-package com.example.chatbox.auth.startupActivity
+package com.example.chatbox.startup
 
 import android.content.Intent
 import android.os.Build
@@ -12,12 +12,8 @@ import com.example.chatbox.auth.signup.SignupActivity
 import com.example.chatbox.databinding.ActivityStartupBinding
 
 
-@Suppress("DEPRECATION")
 class StartupActivity : AppCompatActivity() {
 
-    companion object {
-        private const val TAG = "StartupActivity"
-    }
     private lateinit var binding: ActivityStartupBinding
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -31,16 +27,12 @@ class StartupActivity : AppCompatActivity() {
         actionBar?.hide()
         setContentView(binding.root)
 
-
-
         binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this,SignupActivity::class.java))
-            finish() }
-
-
-
+            finish()
         }
     }
+}
 
 
 

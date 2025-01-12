@@ -59,4 +59,9 @@
     <string name="default_web_client_id">AIzaSyB1MXBQV2-bSOs-wXdJPWpx7H0q2UTs7r0</string>
     <string name="login_phone_number">ADD PHONE NUMBER</string>
     <string name="join">Join</string>
+    <string name="please_enter_a_valid_number">Please Enter A Valid Number</string>
+    <string name="time_out">Time Out</string>
+    <string name="invalid_otp">Invalid OTP</string>
+    <string name="authenticated_successfully">Authenticate Successfully</string>
+    <string name="authenticated_failed">Authenticate failed</string>
 </resources>

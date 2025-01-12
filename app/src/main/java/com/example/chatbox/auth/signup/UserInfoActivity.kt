@@ -1,34 +1,25 @@
 package com.example.chatbox.auth.signup
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.chatbox.data.User
+import androidx.activity.viewModels
+import com.bumptech.glide.Glide
+import com.example.chatbox.BaseActivity
 import com.example.chatbox.databinding.ActivityUserInfoBinding
 import com.example.chatbox.main.MainActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.example.chatbox.network.ServerCallBack
+import com.example.chatbox.utils.Constants
+import com.example.chatbox.utils.showToast
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import java.io.File
 
-class UserInfoActivity : AppCompatActivity() {
-    companion object {
-        const val PICK_IMAGE_REQUEST = 1
-    }
 
-    lateinit var firstName: String
-    lateinit var lastName: String
-    lateinit var fullName: String
-    lateinit var bio: String
-    lateinit var phoneNumber: String
-    lateinit var pictureUri : Uri
-    lateinit var userUid : String
+class UserInfoActivity : BaseActivity() {
 
-    lateinit var auth: FirebaseAuth
-
+    private val viewModel: UserInfoViewModel by viewModels()
     private lateinit var binding: ActivityUserInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,84 +27,79 @@ class UserInfoActivity : AppCompatActivity() {
         binding = ActivityUserInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
-        phoneNumber = intent.getStringExtra("phoneNum")!!
-
         binding.userinfoAddNewProfilePicture.setOnClickListener {
-            openTheGallery()
+            openGallary()
         }
 
         binding.userinfoBtnJoin.setOnClickListener {
-            firstName = binding.userinfoEdFirstName.text.toString()
-            lastName = binding.userinfoEdLastName.text.toString()
-            fullName = "$firstName $lastName"
-            bio = binding.userinfoEdFirstName.text.toString()
-
-            swapToMainActivity()
+            viewModel.userFullName = "${binding.userinfoEdFirstName.text} ${binding.userinfoEdLastName.text}"
+            viewModel.userBio = binding.userinfoEdFirstName.text.toString()
+            saveUserToDB()
         }
     }
 
-    private fun openTheGallery() {
+    private fun saveUserToDB() {
+        viewModel.saveUserToDB().observe(this) {
+            when (it.status) {
+                ServerCallBack.Status.LOADING -> {
+                    showDefaultLoading()
+                }
 
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
-        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+                ServerCallBack.Status.SUCCESS -> {
+                    hideDefaultLoading()
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+
+                ServerCallBack.Status.ERROR -> {
+                    hideDefaultLoading()
+                    showToast(it.message.orEmpty())
+                }
+            }
+        }
     }
 
-    private fun swapToMainActivity() {
-        addUserToDB(fullName, bio, phoneNumber, true, auth.currentUser?.uid!!)
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
+    private fun updateUserProfilePicture() {
+        MainScope().launch {
+            viewModel.uploadUserImage(this@UserInfoActivity).observe(this@UserInfoActivity) {
+                when (it.status) {
+                    ServerCallBack.Status.LOADING -> {
+                        showDefaultLoading()
+                    }
 
-    private fun addUserToDB(
-        name: String,
-        bio: String,
-        phoneNumber: String,
-        userState: Boolean,
-        uid: String
-    ) {
-        userUid = uid
-        val database = FirebaseDatabase.getInstance()
-        val usersRef = database.getReference("users")
+                    ServerCallBack.Status.SUCCESS -> {
+                        hideDefaultLoading()
+                        it.data?.data?.let { response ->
+                            viewModel.userPictureUrl = response.link
+                            Glide.with(this@UserInfoActivity).load(viewModel.userPictureUrl).into(binding.userinfoImgProfilePicture)
+                        }
+                    }
 
-        val user = User(
-            userId = uid,
-            userName = name,
-            profilePicture = pictureUri.toString(),
-            phoneNumber = phoneNumber,
-            isUserOnline = userState
-
-        )
-
-        usersRef.child(uid).setValue(user)
-
-
+                    ServerCallBack.Status.ERROR -> {
+                        hideDefaultLoading()
+                        showToast(it.message.orEmpty())
+                    }
+                }
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImageUri = data.data
-            selectedImageUri?.let {
-                binding.userinfoImgProfilePicture.setImageURI(it)
-                pictureUri = it
-                updateUserProfilePicture(it.toString())
+        if (resultCode == RESULT_OK && requestCode == Constants.READ_IMAGE_REQUEST) {
+            data?.data?.let { galleryUri ->
+                viewModel.localPictureURI = galleryUri
+                updateUserProfilePicture()
             }
         }
     }
 
-    private fun updateUserProfilePicture(imageUri: String) {
-        val userRef = FirebaseDatabase.getInstance().getReference("users").child(userUid)
-        userRef.child("profilePicture").setValue(imageUri)
-            .addOnSuccessListener {
-                Toast.makeText(this,"Profile picture updated successfully",Toast.LENGTH_LONG).show()
-            }
-            .addOnFailureListener{ exception ->
-                Log.e("Firebase", "Failed to update profile picture", exception)
-            }
-
+    private fun openGallary() {
+        val i = Intent(
+            Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        )
+        startActivityForResult(i, Constants.READ_IMAGE_REQUEST)
     }
 
 

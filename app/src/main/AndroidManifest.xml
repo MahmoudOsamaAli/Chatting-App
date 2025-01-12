@@ -8,10 +8,15 @@
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -28,20 +33,17 @@
             android:name=".auth.signup.UserInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.signup.OTPActivity"
+            android:name=".auth.otp.OTPActivity"
             android:exported="false" />
         <activity
             android:name=".auth.signup.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.login.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".auth.startupActivity.StartupActivity"
+            android:name=".startup.StartupActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".startup.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>

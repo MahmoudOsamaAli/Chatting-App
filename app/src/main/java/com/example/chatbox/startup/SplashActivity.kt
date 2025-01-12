@@ -1,10 +1,9 @@
-package com.example.chatbox
+package com.example.chatbox.startup
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.chatbox.auth.startupActivity.StartupActivity
 import com.example.chatbox.databinding.ActivitySplashBinding
 import com.example.chatbox.main.MainActivity
 import com.google.firebase.Firebase
