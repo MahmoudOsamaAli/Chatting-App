@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         handleNavController()
         hideBottomNavForChat()
 
+
     }
 
     private fun handleNavController() {
