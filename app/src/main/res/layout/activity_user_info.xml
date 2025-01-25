@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.signup.UserInfoActivity"
+    android:background="@color/DeepGreen"
+    >
+
+    <FrameLayout
+        android:id="@+id/userinfo_fl_profile_picture"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/userinfo_img_profile_picture"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_profile_empty"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
+
+        <FrameLayout
+            android:id="@+id/userinfo_add_new_profile_picture"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="72dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userinfo_fl_profile_picture"
+            app:layout_constraintEnd_toEndOf="@+id/userinfo_fl_profile_picture">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/bg_add_new_story" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_add_new_story" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_fragment_default"
+        android:layout_marginTop="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_fl_profile_picture">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/circular_std"
+            android:text="First Name"
+            android:textColor="@color/DeepGreen"
+            app:layout_constraintEnd_toEndOf="@+id/userinfo_ed_first_name"
+            app:layout_constraintStart_toStartOf="@+id/userinfo_ed_first_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/userinfo_ed_first_name"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/circular_std"
+            android:text="Last Name"
+            android:textColor="@color/DeepGreen"
+            app:layout_constraintEnd_toEndOf="@+id/userinfo_ed_last_name"
+            app:layout_constraintStart_toStartOf="@+id/userinfo_ed_last_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/userinfo_ed_last_name"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/circular_std"
+            android:text="BIO"
+            android:textColor="@color/DeepGreen"
+            app:layout_constraintEnd_toEndOf="@+id/userinfo_ed_bio"
+            app:layout_constraintStart_toStartOf="@+id/userinfo_ed_bio"
+            app:layout_constraintTop_toBottomOf="@+id/userinfo_ed_first_name" />
+
+        <EditText
+            android:id="@+id/userinfo_ed_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <Button
+            android:id="@+id/userinfo_btn_join"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:background="@drawable/bg_button_auth"
+            android:text="@string/join"
+            android:textColor="@drawable/selector_button_startup_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,33 +2,57 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/ic_logo_chatbox"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@drawable/ic_logo_chatbox"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatbox">
-
         <activity
-            android:name=".signup.SignupActivity"
-            android:exported="false"/>
+            android:name=".auth.signup.UserInfoActivity"
+            android:exported="false" />
         <activity
-            android:name=".login.LoginActivity"/>
+            android:name=".auth.signup.OTPActivity"
+            android:exported="false" />
         <activity
-            android:name=".startupActivity.StartupActivity"
+            android:name=".auth.signup.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.startupActivity.StartupActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting" />
+        <activity
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
+            android:name=".main.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

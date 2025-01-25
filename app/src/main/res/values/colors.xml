@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="Startup_Second_Color">#B9C1BE</color>
+    <!-- Theme Colors -->
+    <color name="primaryGreen">#24786D</color>
+    <color name="primaryGreenDark">#1D5B53</color>
+    <color name="secondaryGray">#797C7B</color>
+    <color name="White">#FFFFFFFF</color>
+    <color name="textColorPrimary">#FF000000</color>
 
+    <color name="tvStartupTitle">#B9C1BE</color>
+    <color name="DeepGreen">#000E08</color>
+    <color name="bottomNavColor">#EEFAF8</color>
+    <color name="messageRequest">#F2F7FB</color>
+    <color name="edChatNewMessage">#F3F6F6</color>
+    <color name="bgChatDate">#F8FBFA</color>
 </resources>
