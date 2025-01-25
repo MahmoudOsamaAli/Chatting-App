@@ -14,4 +14,5 @@ object Constants {
     const val NO_INTERNET = "NO_INTERNET"
     const val GENERAL_ERROR = "GENERAL_ERROR"
     const val IMAGUR_CLIENT_SECRET = "dde078ec10e2a4e4f7924f7035788ca490a142df"
+    const val GITHUB_ACCESS_TOKEN = "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"
 }
