@@ -57,13 +57,13 @@ class SignupActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBar()
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.backArrowIcon.setOnClickListener { onBackPressed() }
 
         binding.btnCreateAnAccount.setOnClickListener {
+            //TODO:: validate phone number format locally
             viewModel.phoneNumber = "${Constants.EGYPT_PHONE_KEY}${binding.signupPhoneNumber.text}"
 
             if (viewModel.phoneNumber.isNullOrEmpty().not() && viewModel.phoneNumber?.length == 13) {

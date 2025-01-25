@@ -15,27 +15,17 @@ import java.util.concurrent.TimeUnit
 
 object FireBaseAuthRepo {
 
-    private fun getFireBaseAuth() = Firebase.auth
+    fun getFireBaseAuth() = Firebase.auth
+
+    fun getCurrentUser() = getFireBaseAuth().currentUser
 
     fun getUserPhoneNumber() = getFireBaseAuth().currentUser?.phoneNumber
 
     fun getUserUUID() = getFireBaseAuth().currentUser?.uid
 
-    fun authorizePhoneNumber(
-        phoneNumber: String,
-        resendToken: PhoneAuthProvider.ForceResendingToken? = null,
-        context: Activity, callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-    ) {
-        val options = PhoneAuthOptions.newBuilder(getFireBaseAuth())
-            .setPhoneNumber(phoneNumber)
-            .setTimeout(Constants.CALL_TIMEOUT, TimeUnit.SECONDS) // Timeout for the code sent via SMS
-            .setActivity(context) // The activity to which the user is navigated to enter the code
-            .setCallbacks(callbacks) // Implement PhoneAuthProvider.OnVerificationStateChangedCallbacks
-        if (resendToken != null) {
-            options.setForceResendingToken(resendToken)
-        }
+    fun authorizePhoneNumber(options:PhoneAuthOptions.Builder) =
         PhoneAuthProvider.verifyPhoneNumber(options.build())
-    }
+
 
     fun signInUserWithPhoneNumber(credential: PhoneAuthCredential, activity: Activity): MutableLiveData<ServerCallBack<AuthResponse>> {
         val liveData = MutableLiveData<ServerCallBack<AuthResponse>>()

@@ -3,7 +3,6 @@ package com.example.chatbox.auth.signup
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.example.chatbox.BaseActivity
@@ -11,10 +10,10 @@ import com.example.chatbox.databinding.ActivityUserInfoBinding
 import com.example.chatbox.main.MainActivity
 import com.example.chatbox.network.ServerCallBack
 import com.example.chatbox.utils.Constants
+import com.example.chatbox.utils.loadImageUrl
 import com.example.chatbox.utils.showToast
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import java.io.File
 
 
 class UserInfoActivity : BaseActivity() {
@@ -32,7 +31,8 @@ class UserInfoActivity : BaseActivity() {
         }
 
         binding.userinfoBtnJoin.setOnClickListener {
-            viewModel.userFullName = "${binding.userinfoEdFirstName.text} ${binding.userinfoEdLastName.text}"
+            viewModel.userFullName =
+                "${binding.userinfoEdFirstName.text} ${binding.userinfoEdLastName.text}"
             viewModel.userBio = binding.userinfoEdFirstName.text.toString()
             saveUserToDB()
         }
@@ -71,7 +71,7 @@ class UserInfoActivity : BaseActivity() {
                         hideDefaultLoading()
                         it.data?.data?.let { response ->
                             viewModel.userPictureUrl = response.link
-                            Glide.with(this@UserInfoActivity).load(viewModel.userPictureUrl).into(binding.userinfoImgProfilePicture)
+                            loadImageUrl(viewModel.userPictureUrl!!,binding.userinfoImgProfilePicture)
                         }
                     }
 

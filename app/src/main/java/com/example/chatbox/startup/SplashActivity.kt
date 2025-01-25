@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.chatbox.databinding.ActivitySplashBinding
 import com.example.chatbox.main.MainActivity
+import com.example.chatbox.repository.FireBaseAuthRepo
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import kotlinx.coroutines.MainScope
@@ -24,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
         // Declare Binding to Access all the views
         binding = ActivitySplashBinding.inflate(layoutInflater)
 
-        val currentUser = Firebase.auth.currentUser
+        val currentUser = FireBaseAuthRepo.getCurrentUser()
         MainScope().launch {
             delay(2000)
             if (currentUser == null) {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.chatbox.BaseActivity
 import com.example.chatbox.R
@@ -150,11 +149,11 @@ class OTPActivity : BaseActivity() {
 
                 ServerCallBack.Status.SUCCESS -> {
                     hideDefaultLoading()
-//                    if (it.data?.isUserExists == true) {
-//                        startActivity(Intent(this, MainActivity::class.java))
-//                    } else {
+                    if (it.data?.isUserExists == true) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                    } else {
                         startActivity(Intent(this, UserInfoActivity::class.java))
-//                    }
+                    }
                     finish()
                 }
 

@@ -1,6 +1,7 @@
 package com.example.chatbox
 
 import android.graphics.Color
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,7 @@ open class BaseActivity : AppCompatActivity() {
     private lateinit var loading: FrameLayout
 
     fun showDefaultLoading(view: ViewGroup? = null) {
-        if (!this::loading.isInitialized) {
+        if (this::loading.isInitialized.not()) {
             loading = FrameLayout(this)
             loading.tag = "LOADING"
             val layoutParams = FrameLayout.LayoutParams(
@@ -33,8 +34,8 @@ open class BaseActivity : AppCompatActivity() {
             val compositionFactory =
                 LottieCompositionFactory.fromAsset(this, "app_animation_loading.json")
 
-            compositionFactory.addListener {
-                loadingView.findViewById<LottieAnimationView>(R.id.loading_view).setComposition(it)
+            compositionFactory.addListener { lottieAnimation ->
+                loadingView.findViewById<LottieAnimationView>(R.id.loading_view).setComposition(lottieAnimation)
             }
 
             compositionFactory.addFailureListener {
@@ -53,6 +54,11 @@ open class BaseActivity : AppCompatActivity() {
         if (this::loading.isInitialized) {
             loading.visibility = View.GONE
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStatusBar()
     }
 
     fun setStatusBar() {
