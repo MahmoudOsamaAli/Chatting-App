@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.chatbox.R
-import com.example.chatbox.auth.startupActivity.StartupActivity
+import com.example.chatbox.startup.StartupActivity
 import com.example.chatbox.databinding.FragmentsSettingsBinding
-import com.example.chatbox.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
@@ -34,9 +32,8 @@ class SettingsFragment : Fragment() {
 
         binding.settingsIcLogout.setOnClickListener{
             auth.signOut()
-            startActivity(Intent(this.requireContext(),StartupActivity::class.java))
-
-
+            startActivity(Intent(this.requireContext(), StartupActivity::class.java))
+            requireActivity().finish()
         }
     }
 }

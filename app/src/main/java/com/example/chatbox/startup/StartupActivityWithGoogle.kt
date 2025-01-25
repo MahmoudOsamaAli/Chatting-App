@@ -13,6 +13,7 @@
 //import com.example.chatbox.R
 //import com.example.chatbox.databinding.ActivityStartupBinding
 //import com.example.chatbox.main.MainActivity
+//import com.google.android.gms.auth.api.identity.BeginSignInRequest
 //import com.google.android.gms.auth.api.signin.GoogleSignIn
 //import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 //import com.google.android.gms.common.api.ApiException
@@ -53,28 +54,28 @@
 //        binding.btnLogin.setOnClickListener {
 //            val signInIntent = mGoogleSignInClient.signInIntent
 //            startActivityForResult(signInIntent, RC_SIGN_IN)
-////            val signInRequest = BeginSignInRequest.builder()
-////                .setGoogleIdTokenRequestOptions(
-////                    BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-////                        .setSupported(true)
-////                        .setServerClientId(getString(R.string.default_web_client_id))
-//////                        .setFilterByAuthorizedAccounts(fal)
-////                        .build()
-////                ).build()
-////
-////            val oneTapClient = Identity.getSignInClient(this)
-////            oneTapClient.beginSignIn(signInRequest)
-////                .addOnSuccessListener { result ->
-////                    try {
-////                        val intentSender = result.pendingIntent.intentSender
-////                        startIntentSenderForResult(intentSender, REQ_ONE_TAP, null, 0, 0, 0)
-////                    } catch (e: ApiException) {
-////                        Log.e(TAG, "Failed to begin sign in: ${e.localizedMessage}")
-////                    }
-////                }
-////                .addOnFailureListener { e ->
-////                    Log.e(TAG, "Failed to begin sign in: ${e.localizedMessage}")
-////                }
+//            val signInRequest = BeginSignInRequest.builder()
+//                .setGoogleIdTokenRequestOptions(
+//                    BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+//                        .setSupported(true)
+//                        .setServerClientId(getString(R.string.default_web_client_id))
+////                        .setFilterByAuthorizedAccounts(fal)
+//                        .build()
+//                ).build()
+//
+//            val oneTapClient = Identity.getSignInClient(this)
+//            oneTapClient.beginSignIn(signInRequest)
+//                .addOnSuccessListener { result ->
+//                    try {
+//                        val intentSender = result.pendingIntent.intentSender
+//                        startIntentSenderForResult(intentSender, REQ_ONE_TAP, null, 0, 0, 0)
+//                    } catch (e: ApiException) {
+//                        Log.e(TAG, "Failed to begin sign in: ${e.localizedMessage}")
+//                    }
+//                }
+//                .addOnFailureListener { e ->
+//                    Log.e(TAG, "Failed to begin sign in: ${e.localizedMessage}")
+//                }
 //        }
 //    }
 //
