@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
     private fun getProfilePicture() {
         val databaseRef = FirebaseDatabase.getInstance().getReference("users")
         val userId = FirebaseAuth.getInstance().currentUser?.uid
-        databaseRef.child("profilePicture").get()
+        databaseRef.child(userId!!).child("profilePicture").get()
             .addOnSuccessListener {snapshot ->
                 val profilePicture = snapshot.value.toString()
                 loadProfilePicture(profilePicture)           }

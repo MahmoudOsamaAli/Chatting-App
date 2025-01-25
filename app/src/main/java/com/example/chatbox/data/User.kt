@@ -1,11 +1,10 @@
 package com.example.chatbox.data
 
-import android.net.Uri
 
 data class User(
-    val userId : String = "",
-    val userName : String = "",
-    val profilePicture : String = "" ,
-    val phoneNumber : String = "",
-    val isUserOnline : Boolean = false
+    var userId: String?,
+    var userName: String?,
+    var profilePicture: String?,
+    var phoneNumber: String?,
+    var isUserOnline: Boolean?,
 )
