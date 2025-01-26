@@ -5,16 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
-    android:backgroundTint="@color/contact_item"
+    android:backgroundTint="#E3F6E3"
     app:cardCornerRadius="16dp"
     app:cardElevation="6dp"
-
-
     >
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        >
+
+        <View
+            android:id="@+id/contact_chat_area"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/contact_imageProfile" />
         <!-- Profile Image -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/contact_imageProfile"

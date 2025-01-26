@@ -1,7 +1,9 @@
 package com.example.chatbox.main.fragments.contacts
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
@@ -9,16 +11,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatbox.R
 import com.example.chatbox.databinding.FragmentContactsBinding
+import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class ContactsFragment : Fragment() {
+class ContactsFragment : Fragment() , ContactsAdapter.OnItemClickListener {
     companion object {
         const val REQUEST_CODE_READ_CONTACTS = 1
     }
@@ -57,7 +62,7 @@ class ContactsFragment : Fragment() {
         fetchContacts { contacts ->
             contactList.clear()
             contactList.addAll(contacts)
-            contactsAdapter = ContactsAdapter(contactList)
+            contactsAdapter = ContactsAdapter(contactList,this)
             contactRecyclerView = binding.recyclerViewContactsList
             contactRecyclerView.adapter = contactsAdapter
             binding.contactsHeader.text = "${contactList.size} Contacts"
@@ -184,4 +189,55 @@ class ContactsFragment : Fragment() {
         }
         return formattedNumber
     }
+
+    override fun onUserItemClick(contact: Contact, isContact: Boolean) {
+        if (isContact) {
+            openChatFragment()
+        } else {
+            handleSmsPermission(contact)
+        }
+    }
+
+    private fun openChatFragment() {
+        val chatFragment = ChatFragment()
+        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragments_container, chatFragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
+    private fun handleSmsPermission(contact: Contact) {
+        if (isSmsPermissionGranted()) {
+            sendSms(contact)
+        } else {
+            requestSmsPermission()
+        }
+    }
+
+    private fun isSmsPermissionGranted(): Boolean {
+        return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestSmsPermission() {
+        ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.SEND_SMS), 1)
+    }
+
+    private fun sendSms(contact: Contact) {
+        val smsBody = createSmsBody(contact)
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse("smsto:${contact.contactNumber}")
+            putExtra("sms_body", smsBody)
+        }
+        startActivity(intent)
+    }
+
+    private fun createSmsBody(contact: Contact): String {
+        val contactName = contact.contactName
+        val invMessage = getString(R.string.invMassage)
+        val appLink = getString(R.string.appLink)
+        return "$contactName\n$invMessage\nAPP LINK: $appLink"
+    }
+
+
+
 }

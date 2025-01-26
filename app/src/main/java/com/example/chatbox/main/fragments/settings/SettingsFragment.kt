@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.chatbox.startup.StartupActivity
-import com.example.chatbox.databinding.FragmentsSettingsBinding
-import com.example.chatbox.auth.startupActivity.StartupActivity
 import com.example.chatbox.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 

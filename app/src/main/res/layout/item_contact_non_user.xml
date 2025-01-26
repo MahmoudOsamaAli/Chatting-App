@@ -15,8 +15,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="4dp"
-        android:paddingStart="4dp">
+        android:padding="8dp"
+        android:paddingStart="16dp"
+        >
         <!-- Profile Image -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/contact_imageProfile"
