@@ -3,13 +3,11 @@ package com.example.chatbox.main.fragments.home
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -17,13 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chatbox.R
 import com.example.chatbox.data.FakeData
-import com.example.chatbox.databinding.FragmentsHomeBinding
+import com.example.chatbox.databinding.FragmentHomeBinding
 import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
 import com.example.chatbox.main.fragments.home.Chats.HomeChatsAdapter
 import com.example.chatbox.main.fragments.home.Stories.StatusAdapter
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 
 /**
@@ -36,7 +33,7 @@ class HomeFragment : Fragment() {
     companion object{
         const val Tag = "HomeFragment"
     }
-    private lateinit var binding: FragmentsHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var chatsAdapter: HomeChatsAdapter
     private lateinit var statusAdapter: StatusAdapter
     private lateinit var statusList: List<FakeData.StatusInfo>
@@ -44,7 +41,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentsHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
         }
 

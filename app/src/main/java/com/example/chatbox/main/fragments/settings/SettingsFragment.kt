@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.chatbox.startup.StartupActivity
-import com.example.chatbox.databinding.FragmentsSettingsBinding
+import com.example.chatbox.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
-    lateinit var binding : FragmentsSettingsBinding
+    lateinit var binding : FragmentSettingsBinding
     lateinit var auth : FirebaseAuth
     companion object{
         const val Tag = "SettingsFragment"
@@ -21,7 +21,7 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
-        binding = FragmentsSettingsBinding.inflate(inflater,container,false)
+        binding = FragmentSettingsBinding.inflate(inflater,container,false)
         return binding.root
 
     }

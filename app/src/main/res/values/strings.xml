@@ -64,4 +64,6 @@
     <string name="invalid_otp">Invalid OTP</string>
     <string name="authenticated_successfully">Authenticate Successfully</string>
     <string name="authenticated_failed">Authenticate failed</string>
+    <string name="invMassage">Join ChatBox for fast, secure messaging, voice messages, and group chats. Stay connected effortlessly with multimedia sharing and seamless syncing across devices. Download now and start chatting!</string>
+    <string name="appLink">NotFound</string>
 </resources>

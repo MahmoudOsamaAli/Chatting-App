@@ -17,7 +17,7 @@
 
         <!-- Profile Image -->
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/message_imageProfile"
+            android:id="@+id/contact_imageProfile"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:scaleType="centerCrop"
@@ -39,8 +39,8 @@
             android:maxLength="17"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/message_time"
-            app:layout_constraintStart_toEndOf="@id/message_imageProfile"
-            app:layout_constraintTop_toTopOf="@id/message_imageProfile"
+            app:layout_constraintStart_toEndOf="@id/contact_imageProfile"
+            app:layout_constraintTop_toTopOf="@id/contact_imageProfile"
             tools:text="User Name" />
 
         <!-- Last Message -->

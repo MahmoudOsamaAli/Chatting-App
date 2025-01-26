@@ -14,4 +14,5 @@
     <color name="edChatNewMessage">#F3F6F6</color>
     <color name="bgChatDate">#F8FBFA</color>
     <color name="alphaYeloBlack80">#cc000000</color>
+    <color name="contact_item">#F1FBF1</color>
 </resources>
