@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatbox.R
 import com.example.chatbox.databinding.FragmentContactsBinding
-import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
+import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -40,12 +40,6 @@ class ContactsFragment : Fragment() , ContactsAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentContactsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CONTACTS)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -56,8 +50,8 @@ class ContactsFragment : Fragment() , ContactsAdapter.OnItemClickListener {
         } else {
             setContactsRecyclerView()
         }
+        return binding.root
     }
-
     private fun setContactsRecyclerView() {
         fetchContacts { contacts ->
             contactList.clear()
@@ -192,18 +186,16 @@ class ContactsFragment : Fragment() , ContactsAdapter.OnItemClickListener {
 
     override fun onUserItemClick(contact: Contact, isContact: Boolean) {
         if (isContact) {
-            openChatFragment()
+            openChatActivity(contact.contactNumber)
         } else {
             handleSmsPermission(contact)
         }
     }
 
-    private fun openChatFragment() {
-        val chatFragment = ChatFragment()
-        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragments_container, chatFragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+    private fun openChatActivity(contactPhoneNumber:String) {
+        val intent = Intent (requireContext(), ChatActivity::class.java)
+        intent.putExtra("PhoneNumberContacts", contactPhoneNumber)
+        requireContext().startActivity(intent)
     }
 
     private fun handleSmsPermission(contact: Contact) {

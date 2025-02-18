@@ -11,10 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieCompositionFactory
 
+
 open class BaseActivity : AppCompatActivity() {
-
     private lateinit var loading: FrameLayout
-
     fun showDefaultLoading(view: ViewGroup? = null) {
         if (this::loading.isInitialized.not()) {
             loading = FrameLayout(this)
@@ -59,6 +58,9 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStatusBar()
+
+
+
     }
 
     fun setStatusBar() {

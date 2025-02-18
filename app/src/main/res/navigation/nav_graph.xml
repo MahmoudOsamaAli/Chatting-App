@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
     <fragment
@@ -21,9 +20,6 @@
             android:id="@+id/action_homeFragment_to_callsFragment2"
             app:destination="@id/callsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_chatFragment"
-            app:destination="@id/chatFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_callsFragment3"
             app:destination="@id/callsFragment" />
     </fragment>
@@ -33,12 +29,7 @@
         android:label="CallsFragment" >
 
     </fragment>
-    <fragment
-        android:id="@+id/chatFragment"
-        android:name="com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment"
-        android:label="ChatFragment" >
 
-    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.chatbox.main.fragments.settings.SettingsFragment"

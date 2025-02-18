@@ -3,7 +3,7 @@ package com.example.chatbox.data
 class FakeData {
     data class ChatInfo(
         val name: String, val content: String, var isSilent: Boolean
-    ) // Change Unit to Boolean
+    )
 
 
     // Data class representing a chat message

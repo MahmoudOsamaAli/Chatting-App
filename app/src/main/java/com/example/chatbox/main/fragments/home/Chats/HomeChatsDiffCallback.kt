@@ -1,9 +1,9 @@
 import androidx.recyclerview.widget.DiffUtil
-import com.example.chatbox.data.FakeData
+import com.example.chatbox.data.ChatInfo
 
 class MessagesDiffCallback(
-    private val oldList: List<FakeData.ChatInfo>,
-    private val newList: List<FakeData.ChatInfo>
+    private val oldList: List<ChatInfo>,
+    private val newList: List<ChatInfo>
 ) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {

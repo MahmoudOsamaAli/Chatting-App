@@ -4,30 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginStart="32dp"
-    android:layout_marginVertical="8dp">
+    android:layout_marginVertical="2dp">
+
 
     <TextView
-        android:id="@+id/itemMessageSend"
+        android:id="@+id/send_message"
         style="@style/itemMessage"
+        android:minWidth="72dp"
         android:background="@drawable/shape_message_send"
         android:text="@string/send_message"
-        tools:text="Chat history,theme,wallpapers"
+        tools:text="hi"
         android:textColor="@color/White"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <TextView
-        android:id="@+id/itemMessageSendTime"
+        android:id="@+id/send_message_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
         android:padding="4dp"
         android:text="9:25 AM"
         android:textColor="@color/tvStartupTitle"
         android:textSize="10sp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/itemMessageSend"
-        app:layout_constraintEnd_toEndOf="@id/itemMessageSend" />
+        app:layout_constraintBottom_toBottomOf="@id/send_message"
+        app:layout_constraintEnd_toEndOf="@id/send_message" />
+
+    <ImageView
+        android:id="@+id/ic_message_state"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/ic_message_unseen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

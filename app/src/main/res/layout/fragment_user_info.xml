@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/DeepGreen"
+    android:fitsSystemWindows="true"
+    tools:context=".main.fragments.home.Chats.ChatMessages.UserInfoFragment">
+
+    <ImageView
+        android:id="@+id/user_info_back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_back_arrow_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/user_info_profile_pic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_profile_empty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circleImageView" />
+
+    <TextView
+        android:id="@+id/user_info_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/White"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_info_profile_pic"
+        tools:text="Mahmoud Tarek" />
+
+    <FrameLayout
+        android:id="@+id/user_info_fl_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/user_info_fl_video_call"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_info_name">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_ic_user_info" />
+
+        <ImageView
+            android:id="@+id/user_info_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_message_chat_info" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/user_info_fl_video_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/user_info_fl_chat"
+        app:layout_constraintEnd_toStartOf="@+id/user_info_fl_audio_call"
+        app:layout_constraintStart_toEndOf="@+id/user_info_fl_chat"
+        app:layout_constraintTop_toTopOf="@+id/user_info_fl_chat">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_ic_user_info" />
+
+        <ImageView
+            android:id="@+id/user_info_video_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_video_call_chat_info" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/user_info_fl_audio_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/user_info_fl_video_call"
+        app:layout_constraintEnd_toStartOf="@+id/user_info_fl_more"
+        app:layout_constraintStart_toEndOf="@+id/user_info_fl_video_call"
+        app:layout_constraintTop_toTopOf="@+id/user_info_fl_video_call">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_ic_user_info" />
+
+        <ImageView
+            android:id="@+id/user_info_audio_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_audio_call_chat_info" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/user_info_fl_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/user_info_fl_audio_call"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_info_fl_audio_call"
+        app:layout_constraintTop_toTopOf="@+id/user_info_fl_audio_call">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_ic_user_info" />
+
+        <ImageView
+            android:id="@+id/user_info_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_more_chat_info" />
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_fragment_default"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_info_fl_chat">
+
+        <TextView
+            android:id="@+id/user_info_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/full_name"
+            android:textColor="@color/secondaryGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_info_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/DeepGreen"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/user_info_tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_tv_name"
+            tools:text="Mahmoud Tarek" />
+
+        <TextView
+            android:id="@+id/user_info_tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last seen"
+            android:visibility="invisible"
+            android:textColor="@color/secondaryGray"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_info_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/DeepGreen"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/user_info_tv_state"
+            app:layout_constraintStart_toStartOf="@+id/user_info_tv_state"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_tv_name"
+            tools:text="@string/Online" />
+
+        <ImageView
+            android:id="@+id/user_info_ic_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:scaleType="center"
+            android:src="@drawable/shape_active_user"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/user_info_state"
+            app:layout_constraintEnd_toStartOf="@id/user_info_state"
+            app:layout_constraintTop_toTopOf="@id/user_info_state" />
+
+        <TextView
+            android:id="@+id/user_info_tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/phone_number"
+            android:textColor="@color/secondaryGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_info_full_name" />
+
+        <TextView
+            android:id="@+id/user_info_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/DeepGreen"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/user_info_tv_phone"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_tv_phone"
+            tools:text="01003778821" />
+
+        <TextView
+            android:id="@+id/user_info_tv_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/bio"
+            android:textColor="@color/secondaryGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_phone" />
+
+        <TextView
+            android:id="@+id/user_info_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="4"
+            android:textColor="@color/DeepGreen"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/user_info_tv_bio"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_tv_bio"
+            tools:text="Be yourself; everyone else is already taken " />
+
+        <TextView
+            android:id="@+id/user_info_media_shared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/media_shared"
+            android:textColor="@color/secondaryGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_bio" />
+
+        <TextView
+            android:id="@+id/user_info_all_media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/view_all"
+            android:textColor="@color/light_green"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_info_bio" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

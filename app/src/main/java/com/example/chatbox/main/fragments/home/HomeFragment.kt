@@ -1,103 +1,96 @@
 package com.example.chatbox.main.fragments.home
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chatbox.R
+import com.example.chatbox.data.ChatInfo
 import com.example.chatbox.data.FakeData
 import com.example.chatbox.databinding.FragmentHomeBinding
-import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatFragment
+import com.example.chatbox.main.fragments.home.Chats.ChatMessages.ChatActivity
 import com.example.chatbox.main.fragments.home.Chats.HomeChatsAdapter
 import com.example.chatbox.main.fragments.home.Stories.StatusAdapter
+import com.example.chatbox.repository.FireBaseAuthRepo
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
-/**
- * A Fragment representing the messages screen.
- * Handles displaying messages in a RecyclerView and allows swipe actions
- * to delete or toggle the silent state of a message.
- */
 class HomeFragment : Fragment() {
 
-    companion object{
+    companion object {
         const val Tag = "HomeFragment"
     }
+
+    private lateinit var homeViewModel: HomeViewModel
     private lateinit var binding: FragmentHomeBinding
     private lateinit var chatsAdapter: HomeChatsAdapter
     private lateinit var statusAdapter: StatusAdapter
     private lateinit var statusList: List<FakeData.StatusInfo>
-    private lateinit var chatsList: MutableList<FakeData.ChatInfo>
+    private var chatsList: MutableList<ChatInfo> = mutableListOf()
+    private val currentUserId = FireBaseAuthRepo.getUserUUID()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        loadProfilePicture()
         return binding.root
-        }
 
-    /**
-     * Set up RecyclerView and swipe actions after the view is created.
-     */
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        getProfilePicture()
-
         setupChatsRV()
-        setupStatusRV()
         setupSwipeToDeleteAndSilent(binding.homeRvChats)
-
+        setupStatusRV()
     }
 
-    private fun getProfilePicture() {
-        val databaseRef = FirebaseDatabase.getInstance().getReference("users")
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        databaseRef.child(userId!!).child("profilePicture").get()
-            .addOnSuccessListener {snapshot ->
-                val profilePicture = snapshot.value.toString()
-                loadProfilePicture(profilePicture)           }
-            .addOnFailureListener {exception ->
-                Log.e("Firebase", "Error fetching profile picture", exception)            }
-    }
+    private fun loadProfilePicture() {
+        homeViewModel.profilePic.observe(viewLifecycleOwner) {
+            Glide.with(this)
+                .load(it)
+                .placeholder(R.drawable.img_profile_empty)
+                .into(binding.homeImgProfile)
 
-    private fun loadProfilePicture(profilePicture: String) {
-        Glide.with(this)
-            .load(profilePicture)
-            .into(binding.homeImgProfile)
+        }
+        currentUserId?.let { homeViewModel.getProfilePicLink(it) }
     }
 
     private fun setupStatusRV() {
         statusList = FakeData().getStatusInfo().toMutableList()
         statusAdapter = StatusAdapter(statusList)
-        binding.homeRvStatus.adapter =this@HomeFragment.statusAdapter
+        binding.homeRvStatus.adapter = this@HomeFragment.statusAdapter
     }
 
-
-    /**
-     * Initialize the RecyclerView by setting its layout manager,
-     * fetching the messages from FakeData, and assigning the adapter.
-     */
     private fun setupChatsRV() {
-        chatsList = FakeData().getChatInfo().toMutableList()
-        chatsAdapter = HomeChatsAdapter(chatsList, this)
-        binding.homeRvChats.adapter = this@HomeFragment.chatsAdapter
+        val manager = LinearLayoutManager(requireContext()).apply {
+            reverseLayout = true
+            stackFromEnd = true
+            isSmoothScrollbarEnabled = true
+        }
+        binding.homeRvChats.layoutManager = manager
+        chatsAdapter = HomeChatsAdapter(emptyList(), currentUserId!!, this)
+        binding.homeRvChats.adapter = chatsAdapter
+        homeViewModel.chatList.observe(viewLifecycleOwner) { chatList ->
+            chatsAdapter.updateChats(chatList)
+            binding.homeRvChats.post {
+                binding.homeRvChats.smoothScrollToPosition(0)
 
+            }
+        }
     }
 
-    /**
-     * Set up swipe gestures for the RecyclerView.
-     * Swiping left deletes a message, swiping right toggles the silent state.
-     */
     private fun setupSwipeToDeleteAndSilent(recyclerView: RecyclerView) {
         val itemTouchHelper = ItemTouchHelper(object :
             ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
@@ -144,32 +137,29 @@ class HomeFragment : Fragment() {
      * Swiping left deletes the message, swiping right toggles its silent state.
      */
     private fun handleSwipe(position: Int, direction: Int) {
-        // Validate the position of the swiped item
-        if (position == RecyclerView.NO_POSITION || position < 0 || position >= chatsList.size) return
+        if (position in 0 until chatsAdapter.itemCount) {
+            when (direction) {
+                ItemTouchHelper.LEFT -> {
+                    chatsAdapter.removeItem(position)?.let { deletedItem ->
+                        showUndoSnackBar(deletedItem, position)
+                    }
+                }
 
-        when (direction) {
-            ItemTouchHelper.LEFT -> {
-                // Handle left swipe (delete)
-                val deletedItem = chatsAdapter.removeItem(position) // Remove message
-                if (deletedItem != null) {
-                    showUndoSnackBar(deletedItem, position) // Show SnackBar with undo option
+                ItemTouchHelper.RIGHT -> {
+                    chatsAdapter.toggleSilentItem(position)
+                    saveSilentState(position, chatsAdapter.getSilentState(position))
                 }
             }
-
-            ItemTouchHelper.RIGHT -> {
-                // Handle right swipe (toggle silent state)
-                chatsAdapter.toggleSilentItem(position) // Toggle silent status
-                saveSilentState(
-                    position, chatsAdapter.getSilentState(position)
-                ) // Save the new silent state
-            }
+            chatsAdapter.notifyItemChanged(position)
+        } else {
+            chatsAdapter.notifyDataSetChanged()
         }
     }
 
     /**
      * Displays an undo option in a Snackbar after a message is deleted.
      */
-    private fun showUndoSnackBar(deletedItem: FakeData.ChatInfo, position: Int) {
+    private fun showUndoSnackBar(deletedItem: ChatInfo, position: Int) {
         Snackbar.make(binding.homeRvChats, "Item Deleted", Snackbar.LENGTH_LONG)
             .setAction("Undo") {
                 chatsAdapter.restoreItem(deletedItem, position) // Restore deleted message on undo
@@ -255,30 +245,16 @@ class HomeFragment : Fragment() {
         )
     }
 
-    /**
-     * Saves the silent state of a message in SharedPreferences.
-     */
     private fun saveSilentState(position: Int, isSilent: Boolean) {
         context?.getSharedPreferences("SilentStatePrefs", Context.MODE_PRIVATE)?.edit()?.apply {
             putBoolean("message_$position", isSilent) // Store the silent state
             apply() // Commit changes
         }
-
     }
-
-    fun onItemClick(chatInfo: FakeData.ChatInfo) {
-        val userName = chatInfo.name
-
-        val chatFragment = ChatFragment()
-        val bundle = Bundle().apply {
-            putString("userName", userName)
-        }
-        chatFragment.arguments = bundle
-
-        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragments_container, chatFragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+    fun openChatActivity(name: String, phoneNumber: String, profilePic: String) {
+        val intent = Intent(requireContext(), ChatActivity::class.java)
+        intent.putExtra("HomePhoneNumber", phoneNumber)
+        requireContext().startActivity(intent)
     }
 
 }

@@ -1,9 +1,10 @@
 package com.example.chatbox.data
 
-import com.google.firebase.Timestamp
-
 data class Message(
-    val senderId : String = "",
-    val text : String = "",
+    val messageId: String = "",
+    val message: String = "",
+    val senderId: String = "",
+    val receiverId: String = "",
+    var isSeen: Boolean = false,
     val timestamp: Long = System.currentTimeMillis()
 )
