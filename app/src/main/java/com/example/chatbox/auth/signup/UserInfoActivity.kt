@@ -33,7 +33,7 @@ class UserInfoActivity : BaseActivity() {
         binding.userinfoBtnJoin.setOnClickListener {
             viewModel.userFullName =
                 "${binding.userinfoEdFirstName.text} ${binding.userinfoEdLastName.text}"
-            viewModel.userBio = binding.userinfoEdFirstName.text.toString()
+            viewModel.userBio = binding.userinfoEdBio.text.toString()
             saveUserToDB()
         }
     }

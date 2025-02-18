@@ -66,4 +66,12 @@
     <string name="authenticated_failed">Authenticate failed</string>
     <string name="invMassage">Join ChatBox for fast, secure messaging, voice messages, and group chats. Stay connected effortlessly with multimedia sharing and seamless syncing across devices. Download now and start chatting!</string>
     <string name="appLink">NotFound</string>
+    <string name="Online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="nick_name">Nick Name</string>
+    <string name="full_name">Full Name</string>
+    <string name="bio">BIO</string>
+    <string name="media_shared">Media Shared</string>
+    <string name="view_all">View All</string>
 </resources>

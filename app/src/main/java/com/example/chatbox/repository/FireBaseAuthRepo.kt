@@ -18,6 +18,7 @@ object FireBaseAuthRepo {
     fun getFireBaseAuth() = Firebase.auth
 
     fun getCurrentUser() = getFireBaseAuth().currentUser
+    fun getCurrentUserName() = getFireBaseAuth().currentUser?.displayName
 
     fun getUserPhoneNumber() = getFireBaseAuth().currentUser?.phoneNumber
 

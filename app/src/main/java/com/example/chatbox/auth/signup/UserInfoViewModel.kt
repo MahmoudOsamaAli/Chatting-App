@@ -29,18 +29,19 @@ import java.util.Locale
 
 class UserInfoViewModel(application: Application) : AndroidViewModel(application) {
 
-    var userFullName: String? = null
-    var userBio: String? = null
-    var userPictureUrl: String? = null
+    var userFullName: String = ""
+    var userBio: String = ""
+    var userPictureUrl: String = ""
     var localPictureURI: Uri? = null
 
     fun saveUserToDB(): MutableLiveData<ServerCallBack<DatabaseResponse>> {
         val user = User(
-            userId = FireBaseAuthRepo.getUserUUID(),
+            userId = FireBaseAuthRepo.getUserUUID()!!,
             userName = userFullName,
-            profilePicture = userPictureUrl.toString(),
-            phoneNumber = FireBaseAuthRepo.getUserPhoneNumber(),
-            isUserOnline = true
+            profilePicture = userPictureUrl,
+            phoneNumber = FireBaseAuthRepo.getUserPhoneNumber()!!,
+            bio = userBio
+
         )
         return FirebaseDatabaseRepo.saveUserToDB(user)
     }

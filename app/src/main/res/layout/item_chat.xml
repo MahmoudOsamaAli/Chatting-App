@@ -2,18 +2,20 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="85dp"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="4dp"
-    app:cardElevation="6dp"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="2dp"
+    app:cardElevation="4dp"
     app:cardCornerRadius="16dp"
     android:backgroundTint="#F7F7F7">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="8dp"
+        >
 
         <!-- Profile Image -->
         <com.google.android.material.imageview.ShapeableImageView
@@ -31,12 +33,12 @@
         <TextView
             android:id="@+id/userName"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_marginStart="12dp"
             android:fontFamily="@font/caros"
-            android:textColor="#212121"
-            android:textSize="18sp"
             android:maxLength="17"
+            android:textColor="#212121"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/message_time"
             app:layout_constraintStart_toEndOf="@id/contact_imageProfile"
@@ -46,28 +48,57 @@
         <!-- Last Message -->
         <TextView
             android:id="@+id/lastMessage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/circular_std"
+            android:maxLength="32"
+            android:maxLines="2"
             android:textColor="#757575"
             android:textSize="14sp"
-            android:maxLength="18"
-            app:layout_constraintEnd_toEndOf="@+id/userName"
-            app:layout_constraintStart_toStartOf="@+id/userName"
-            app:layout_constraintTop_toBottomOf="@id/userName"
-            tools:text="How are you today?" />
+            app:layout_constraintStart_toEndOf="@+id/ic_message_state"
+            app:layout_constraintTop_toBottomOf="@+id/userName"
+            tools:text="How are you?" />
 
         <!-- Message Time -->
         <TextView
             android:id="@+id/message_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
             android:textColor="#757575"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/userName"
-            android:text="2 min ago" />
+            tools:text="2:34AM" />
+
+        <ImageView
+            android:id="@+id/ic_message_state"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/lastMessage"
+            app:layout_constraintStart_toStartOf="@+id/userName"
+            app:layout_constraintTop_toTopOf="@+id/lastMessage" />
+
+        <ImageView
+            android:id="@+id/ic_new_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/lastMessage"
+            app:layout_constraintEnd_toEndOf="@+id/message_time"
+            app:layout_constraintStart_toEndOf="@+id/userName"
+            app:layout_constraintTop_toTopOf="@+id/lastMessage" />
+        <TextView
+            android:id="@+id/new_message_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circular_std"
+            android:textSize="14sp"
+            android:textColor="#F7F7F7"
+            app:layout_constraintBottom_toBottomOf="@+id/lastMessage"
+            app:layout_constraintEnd_toEndOf="@+id/message_time"
+            app:layout_constraintStart_toEndOf="@+id/userName"
+            app:layout_constraintTop_toTopOf="@+id/lastMessage" />
 
         <!-- Silent Icon -->
         <ImageView
@@ -75,11 +106,11 @@
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginTop="4dp"
-            android:contentDescription="TODO"
             android:src="@drawable/ic_recycler_notification_silence"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/message_time"
             app:layout_constraintEnd_toEndOf="@id/message_time" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

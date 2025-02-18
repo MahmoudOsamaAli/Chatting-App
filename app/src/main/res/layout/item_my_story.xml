@@ -24,8 +24,8 @@
             app:trackColor="@color/bgChatDate" />
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/status_profile_picture_me"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_profile_user"
             android:layout_gravity="center"
@@ -57,13 +57,12 @@
     <TextView
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:maxLines="1"
         android:textAlignment="center"
         android:text="@string/my_status"
         android:fontFamily="@font/caros"
         android:textColor="@color/White"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/status_fl_profile_picture"
         app:layout_constraintStart_toStartOf="@+id/status_fl_profile_picture"

@@ -3,14 +3,22 @@ package com.example.chatbox.main.fragments.home.Chats.ChatMessages
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatbox.R
-import com.example.chatbox.data.FakeData
+import com.example.chatbox.data.Message
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class ChatMessagesAdapter(
-    private val chatInfoList: List<FakeData.ChatMessage>,
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val currentUserId: String
+) : ListAdapter<Message, RecyclerView.ViewHolder>(MessageDiffCallback()) {
+    private val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+
 
     companion object {
         const val VIEW_TYPE_SEND = 0
@@ -23,16 +31,16 @@ class ChatMessagesAdapter(
     }
 
     class SendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val messageSent: TextView = itemView.findViewById(R.id.itemMessageSend)
-        val messageSendingTime: TextView = itemView.findViewById(R.id.itemMessageSendTime)
+        val messageSent: TextView = itemView.findViewById(R.id.send_message)
+        val messageSendingTime: TextView = itemView.findViewById(R.id.send_message_time)
+        val messageState: ImageView = itemView.findViewById(R.id.ic_message_state)
+
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (chatInfoList[position].isCurrentUser) {
-            VIEW_TYPE_SEND
-        } else {
-            VIEW_TYPE_RECEIVE
-        }
+        val message = getItem(position)
+
+        return if (message.senderId == currentUserId) VIEW_TYPE_SEND else VIEW_TYPE_RECEIVE
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -47,16 +55,31 @@ class ChatMessagesAdapter(
         }
     }
 
-    override fun getItemCount() = chatInfoList.size
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val currentMessage = chatInfoList[position]
+        val currentMessage = getItem(position)
+        val formattedTime = timeFormat.format(Date(currentMessage.timestamp))
         if (holder is SendViewHolder) {
-            holder.messageSent.text = currentMessage.text
-            holder.messageSendingTime.text = currentMessage.time
+            holder.messageSent.text = currentMessage.message
+            holder.messageSendingTime.text = formattedTime
+            if (currentMessage.isSeen) {
+                holder.messageState.setImageResource(R.drawable.ic_message_seen)
+            } else {
+                holder.messageState.setImageResource(R.drawable.ic_message_unseen)
+            }
+
         } else if (holder is RequestViewHolder) {
-            holder.messageRequest.text = currentMessage.text
-            holder.messageRequestTime.text = currentMessage.time
+            holder.messageRequest.text = currentMessage.message
+            holder.messageRequestTime.text = formattedTime
+        }
+    }
+
+    class MessageDiffCallback : DiffUtil.ItemCallback<Message>() {
+        override fun areItemsTheSame(oldItem: Message, newItem: Message): Boolean {
+            return oldItem.senderId == newItem.senderId
+        }
+
+        override fun areContentsTheSame(oldItem: Message, newItem: Message): Boolean {
+            return oldItem == newItem
         }
     }
 }

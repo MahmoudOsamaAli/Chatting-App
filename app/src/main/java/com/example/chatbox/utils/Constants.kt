@@ -13,4 +13,6 @@ object Constants {
     const val READ_IMAGE_REQUEST = 2
     const val NO_INTERNET = "NO_INTERNET"
     const val GENERAL_ERROR = "GENERAL_ERROR"
+    const val IMAGUR_CLIENT_SECRET = "dde078ec10e2a4e4f7924f7035788ca490a142df"
+
 }
